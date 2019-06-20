@@ -1,12 +1,13 @@
 import { mailService } from '../../../services/imail-service.js'
+import subjectText from '../cmp/subject-text.cmp.js'
 
 export default {
     name: 'mail-preview',
     template: `
             <section  @click.stop="goToMail" v-if="currMail"  class="mail-preview" :class="{ read: isRead }" >
             <p>{{currMail.senderName}}</p>
+            <subjectText :txt="currMail.mailTxt"></subjectText>
             <p>{{currMail.subject}}</p>
-            <p>{{currMail.mailTxt}}</p>
             <p>{{currMail.time}}</p>
             </section>    
     
@@ -29,6 +30,6 @@ export default {
         }
     },
     components: {
-
+        subjectText
     }
 }
