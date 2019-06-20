@@ -1,4 +1,6 @@
-import mailPreview from '../cmp/imail-preview.cmp'
+import mailPreview from '../cmp/imail-preview.cmp.js'
+import { mailService } from '../../../services/imail-service.js'
+
 
 
 export default {
@@ -11,14 +13,13 @@ export default {
     `,
     data() {
         return {
-            mail: null,
+            mails: null,
         }
     },
     created() {
-        bookService.getBookById(bookId)
-            .then(res => {
-                this.mail = res;
-
+        mailService.query()
+            .then(mails => {
+                this.mails = mails;
             })
     },
     methods: {
@@ -28,14 +29,14 @@ export default {
         mailPreview,
     },
     watch: {
-        '$route.params.selectedBookId' (bookId) {
-            console.log('route id', bookId);
-            bookService.getBookById(bookId)
-                .then(res => {
-                    this.book = res;
+        // '$route.params.selectedBookId' (bookId) {
+        //     console.log('route id', bookId);
+        //     mailService.getBookById(bookId)
+        //         .then(res => {
+        //             this.book = res;
 
 
-                })
-        }
+        //         })
+        // }
     },
 }

@@ -1,5 +1,6 @@
 import appHeader from '../cmp/imail-header.cmp.js';
 import appSideBar from '../cmp/app-side-bar.cmp.js';
+import appList from '../cmp/imail.mail-list.cmp.js'
 
 
 
@@ -9,9 +10,9 @@ export default {
     },
     template: `
       <div>
-          <h1>wow</h1>
     <app-header></app-header>
     <app-side-bar></app-side-bar>
+    <app-list></app-list>
     </div>
     `,
 
@@ -19,5 +20,7 @@ export default {
     components: {
         appHeader,
         appSideBar,
+        appList,
+
     },
 }
