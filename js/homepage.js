@@ -10,7 +10,8 @@ var app = new Vue({
     },
     template: `
       <div>
-    <imail-app></imail-app>
+          <h1>Enter</h1>
+    <!-- <imail-app></imail-app> -->
     <!-- <inote-app></inote-app> -->
     </div>
     `,
