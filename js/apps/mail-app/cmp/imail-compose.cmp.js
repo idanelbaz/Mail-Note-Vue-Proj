@@ -1,8 +1,12 @@
+import appHeader from '../../mail-app/cmp/imail-header.cmp.js';
+import appSideBar from '../cmp/app-side-bar.cmp.js';
+
 export default {
     name: 'compose',
     template: `
             <section class="compose">
-              
+            <app-header></app-header>
+            <app-side-bar></app-side-bar>
             </section>    
     
     `,
@@ -19,6 +23,7 @@ export default {
 
     },
     components: {
-
-    }
+        appHeader,
+        appSideBar,
+    },
 }

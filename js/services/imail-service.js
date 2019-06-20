@@ -51,6 +51,11 @@ function getById(mailId) {
     return currMail;
 }
 
+function addMail(subject, senderName, senderMailAdd, mailTxt) {
+    gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt))
+    storageService.store('mails', gMails);
+}
+
 
 
 
@@ -59,4 +64,5 @@ export const mailService = {
     createMail,
     getById,
     query,
+    addMail,
 }
