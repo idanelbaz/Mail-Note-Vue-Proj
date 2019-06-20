@@ -14,7 +14,6 @@
     height: 96vh;
 }
 
-
 .app-side-bar {
     grid-row: 2/span 6;
     background-color: #EEE;
@@ -25,6 +24,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-weight: bold;
 }
 
 .mail-list {

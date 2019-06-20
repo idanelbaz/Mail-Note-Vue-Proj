@@ -56,6 +56,18 @@ function addMail(subject, senderName, senderMailAdd, mailTxt) {
     storageService.store('mails', gMails);
 }
 
+function makeRead(currMail) {
+    gMails.forEach(mail => {
+        if (mail.id === currMail.id)
+            if (mail.isRead === true) return
+            else {
+                mail.isRead = true;
+            }
+    })
+
+    storageService.store('mails', gMails);
+}
+
 
 
 
@@ -65,4 +77,5 @@ export const mailService = {
     getById,
     query,
     addMail,
+    makeRead,
 }
