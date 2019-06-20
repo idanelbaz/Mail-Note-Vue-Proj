@@ -6,13 +6,19 @@ export default {
     name: 'search-filter',
     template: `
             <section class="filter">
-            <input class="search-name" type="text" v-model="txt" @input="emitFilter"  placeholder="search by name" autofocus/>
+            <input class="search-name" type="text" v-model="filter.txt" @input="emitFilter"  placeholder="search by name" autofocus/>
+            <select @input="emitFilter" v-model="filter.whatShow">
+                <option value="all">All</option>
+                <option value="read">Read</option>
+                <option value="unread">Unread</option>
+        </select>
             </section>    
     
     `,
     data() {
         return {
-            txt: '',
+            filter: { txt: '', whatShow: 'all' },
+
         }
     },
     created() {
@@ -20,7 +26,7 @@ export default {
     },
     methods: {
         emitFilter() {
-            eventBus.$emit('filter', this.txt);
+            eventBus.$emit('filter', this.filter);
         }
     },
     components: {
