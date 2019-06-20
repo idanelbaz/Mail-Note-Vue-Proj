@@ -1,4 +1,4 @@
-import mailService from '../../../services/imail-service.js'
+import {mailService} from '../../../services/imail-service.js'
 
 export default {
     name: 'search-filter',

@@ -3,17 +3,17 @@ import theRoutes from './routes.js'
 
 const myRouter = new VueRouter({ routes: theRoutes })
 
-var app = new Vue({
+new Vue({
     el: '#app',
     mounted() {
 
     },
     template: `
-      <div>
-          <h1>Enter</h1>
-    <!-- <imail-app></imail-app> -->
+      <section>
+        <h1>Enter</h1>
+    <imail-app></imail-app>
     <!-- <inote-app></inote-app> -->
-    </div>
+    </section>
     `,
 
     data: {

@@ -1,8 +1,7 @@
 import appHeader from './cmp/imail-header.cmp.js';
 import appSideBar from './cmp/app-side-bar.cmp.js';
-import theRoutes from './routes.js'
 
-const myRouter = new VueRouter({ routes: theRoutes })
+
 
 export default {
     el: '#app',
@@ -11,9 +10,9 @@ export default {
     },
     template: `
       <div>
+          <h1>wow</h1>
     <app-header></app-header>
     <app-side-bar></app-side-bar>
-    <router-view></router-view>
     </div>
     `,
 
@@ -32,5 +31,4 @@ export default {
         appHeader,
         appSideBar,
     },
-    router: myRouter
 }
