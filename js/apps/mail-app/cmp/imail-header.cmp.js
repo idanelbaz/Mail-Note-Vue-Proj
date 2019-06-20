@@ -11,17 +11,6 @@ export default {
             </section>    
     
     `,
-    data() {
-        return {
-
-        }
-    },
-    created() {
-
-    },
-    methods: {
-
-    },
     components: {
         filter,
     }
