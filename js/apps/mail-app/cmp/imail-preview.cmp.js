@@ -9,6 +9,10 @@ export default {
             <subjectText :txt="currMail.mailTxt"></subjectText>
             <p>{{currMail.subject}}</p>
             <p>{{currMail.time}}</p>
+           <div class="mail-icons">
+                <button><i class="el-icon-delete-solid"></i></button>
+                <button><i class="el-icon-star-off"></i></button>
+           </div>
             </section>    
     
     `,
