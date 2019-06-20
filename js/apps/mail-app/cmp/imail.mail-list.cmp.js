@@ -48,7 +48,7 @@ export default {
 
             return this.mails.filter(mail => {
                 mail.subject = mail.subject.toLowerCase();
-                let render = mail.subject.includes(this.filterBy.txt) && mail.senderName.includes(this.filterBy.txt);
+                let render = mail.subject.includes(this.filterBy.txt);
                 if (this.filterBy.whatShow === 'all') return render;
                 else if (this.filterBy.whatShow === 'read') return mail.isRead
                 else return mail.isRead === false;
