@@ -8,7 +8,11 @@ export default {
     name: 'mail-list',
     template: `
             <section v-if="mails" class="mail-list">
+<<<<<<< HEAD
               <mail-preview v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
+=======
+              <mail-preview v-for="mail in mails" :currMail ="mail" :key="mail.id"></mail-preview>
+>>>>>>> 4d79bb58f1e04ae24fce48f7727e0455f61c80ce
             </section>    
     
     `,
@@ -42,14 +46,14 @@ export default {
 
 
         }
+
     },
-    methods: {
+    mounted() {
 
     },
     components: {
         mailPreview,
     },
-    watch: {
 
-    },
+
 }

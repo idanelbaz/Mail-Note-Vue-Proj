@@ -1,6 +1,5 @@
 import { mailService } from '../../../services/imail-service.js'
 
-
 export default {
     name: 'mail-preview',
     template: `
@@ -27,6 +26,6 @@ export default {
         }
     },
     components: {
-
+        
     }
 }
