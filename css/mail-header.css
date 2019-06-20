@@ -1,4 +1,27 @@
-
-.imail-header{
+.imail-header {
     display: flex;
+}
+
+.imail-header img {
+    width: 100px;
+}
+
+.imail-main {
+    display: grid;
+    max-width: 980px;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.app-side-bar {
+    grid-row: 2/span 3;
+    background-color: #EEE;
+}
+
+.mail-preview{
+    background-color: #EEE;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

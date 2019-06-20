@@ -9,7 +9,7 @@ export default {
         console.log('App has been Mounted!');
     },
     template: `
-      <div>
+      <div class="imail-main">
     <app-header></app-header>
     <app-side-bar></app-side-bar>
     <app-list></app-list>
@@ -19,6 +19,5 @@ export default {
         appHeader,
         appSideBar,
         appList,
-
     },
 }
