@@ -15,8 +15,6 @@ export default {
     <app-list></app-list>
     </div>
     `,
-
-
     components: {
         appHeader,
         appSideBar,

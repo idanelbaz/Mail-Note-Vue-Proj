@@ -9,19 +9,7 @@ export default {
             <search-filter></search-filter>
             <p>little menu</p>
             </section>    
-    
     `,
-    data() {
-        return {
-
-        }
-    },
-    created() {
-
-    },
-    methods: {
-
-    },
     components: {
         searchFilter,
     }
