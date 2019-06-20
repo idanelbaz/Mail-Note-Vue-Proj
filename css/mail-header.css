@@ -8,20 +8,26 @@
 
 .imail-main {
     display: grid;
-    max-width: 980px;
     margin: 0 auto;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 96vh;
 }
 
+
 .app-side-bar {
-    grid-row: 2/span 3;
+    grid-row: 2/span 6;
     background-color: #EEE;
 }
 
-.mail-preview{
+.mail-preview {
     background-color: #EEE;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.mail-list {
+    grid-row: 2/span 6;
+    grid-column: 2/span 5;
 }
