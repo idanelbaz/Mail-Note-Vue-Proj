@@ -1,7 +1,7 @@
 'use strict'
 
-import { storageService } from './imail-storage.service.js'
-import { utilService } from './imail-util.service.js'
+import { storageService } from './storage.service.js'
+import { utilService } from './util.service.js'
 
 
 let gMails = [
