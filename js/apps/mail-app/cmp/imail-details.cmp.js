@@ -19,9 +19,8 @@ export default {
                             <button>Replay</button>
                         </div>
                     </div>
-                <imail-compose></imail-compose>
             </section>    
-    
+    <imail-replay></imail-replay>
     `,
     data() {
         return {

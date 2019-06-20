@@ -9,5 +9,5 @@ export default [
     { path: '/', component: homePage },
     { path: '/imail', component: iMailApp },
     { path: '/imail/:theMailId', component: mailDetails },
-    { path: '/imail/compose', component: imialCompose },
+    { path: '/compose', component: imialCompose },
 ]
