@@ -9,7 +9,6 @@ export default {
     },
     template: `
       <div>
-          <h1>wow</h1>
     <app-header></app-header>
     <app-side-bar></app-side-bar>
     </div>

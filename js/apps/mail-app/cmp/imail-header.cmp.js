@@ -9,7 +9,6 @@ export default {
             <search-filter></search-filter>
             <p>little menu</p>
             </section>    
-    
     `,
     components: {
         searchFilter,
