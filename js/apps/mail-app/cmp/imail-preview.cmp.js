@@ -5,7 +5,7 @@ export default {
     template: `
             <section @click="goToMail" v-if="currMail" class="mail-preview">
             <p>{{currMail.senderName}}</p>
-            <p>{{currMail.subject}}-</p>
+            <p>{{currMail.subject}}</p>
             <p>{{currMail.mailTxt}}</p>
             <p>{{currMail.time}}</p>
             </section>    

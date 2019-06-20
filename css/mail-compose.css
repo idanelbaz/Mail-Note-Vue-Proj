@@ -1,0 +1,13 @@
+.compose{
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 96vh;
+}
+
+.new-compose{
+    background-color: rgb(250, 89, 89);
+    grid-row: 2/span 6;
+    grid-column: 2/span 5;
+}
