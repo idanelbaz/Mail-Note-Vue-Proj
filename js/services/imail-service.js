@@ -31,10 +31,12 @@ function createMail(subject, senderName, senderMailAdd, mailTxt) {
 function query() {
 
     if (!storageService.load('mails')) {
-        storageService.store('mails', gbooks)
+        storageService.store('mails', gMails)
+    } else {
+        gMails = storageService.load('mails');
     }
 
-    return Promise.resolve(gbooks);
+    return Promise.resolve(gMails);
 }
 
 
