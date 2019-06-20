@@ -8,7 +8,7 @@ export default {
     name: 'mail-list',
     template: `
             <section v-if="mails" class="mail-list">
-              <mail-preview class="mail-preview" v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
+              <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
     `,
