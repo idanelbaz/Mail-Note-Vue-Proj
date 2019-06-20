@@ -4,7 +4,6 @@ import appSideBar from '../cmp/app-side-bar.cmp.js';
 
 
 export default {
-    el: '#app',
     mounted() {
         console.log('App has been Mounted!');
     },
@@ -16,17 +15,7 @@ export default {
     </div>
     `,
 
-    data: {
 
-    },
-
-    computed: {
-
-    },
-    methods: {
-
-
-    },
     components: {
         appHeader,
         appSideBar,
