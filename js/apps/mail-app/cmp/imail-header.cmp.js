@@ -1,4 +1,4 @@
-import filter from '../cmp/search-filter.cmp.js';
+import filter from './search-filter.cmp.js';
 
 
 export default {
