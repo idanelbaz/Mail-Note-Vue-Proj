@@ -7,7 +7,7 @@ import eventBus from '../../../event-bus.js';
 export default {
     name: 'mail-list',
     template: `
-            <section v-if="mails" class="mail-list">
+            <section v-if="mails"  class="mail-list">
               <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
@@ -20,21 +20,26 @@ export default {
         }
     },
     created() {
-        eventBus.$on('filter', (txt) => {
-            this.filterBy = txt
-        });
+
         mailService.query()
             .then(mails => {
                 this.mails = mails;
-                console.log(this.mails)
             })
 
 
 
+        eventBus.$on('filter', (txt) => {
+            this.filterBy = txt
+        });
+
     },
+
+
     computed: {
         mailsForDisplay() {
-            console.log(this.filterBy)
+            if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash(this.mails);
+            else if (this.$route.path === '/imail') this.mails = mailService.onlyReg(this.mails);
+            else if (this.$route.path === '/favorites') this.mails = mailService.onlyFav(this.mails);
             if (!this.filterBy.txt && this.filterBy.whatShow === 'all') return this.mails;
             else if (!this.filterBy.txt && this.filterBy.whatShow === 'read') {
                 return this.mails.filter(mail => {
