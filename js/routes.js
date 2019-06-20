@@ -1,4 +1,4 @@
-import homePage from '../js/homepage.cmp.js';
+import homePage from './homepage.cmp.js';
 
 
 
