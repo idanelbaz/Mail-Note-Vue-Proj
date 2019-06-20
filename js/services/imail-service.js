@@ -4,6 +4,7 @@ import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
 
+
 let gMails = [
     createMail('Shalom', 'idan', 'idan@gmail.com', 'how you doing?'),
     createMail('What up', 'daniel', 'daniel@gmail.com', 'where are you?'),

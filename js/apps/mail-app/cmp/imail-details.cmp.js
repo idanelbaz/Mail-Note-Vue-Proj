@@ -1,5 +1,5 @@
-import compose from './imail-compose.cmp';
-import {mailService} from '../../../services/imail-service.js'
+import imailCompose from './imail-compose.cmp.js';
+import { mailService } from '../../../services/imail-service.js'
 
 
 export default {
@@ -23,6 +23,6 @@ export default {
 
     },
     components: {
-        compose,
+        imailCompose,
     }
 }
