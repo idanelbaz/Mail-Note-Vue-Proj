@@ -7,7 +7,7 @@ export default {
     name: 'mail-list',
     template: `
             <section v-if="mails" class="mail-list">
-              <mail-preview v-for="mail in mails" :currMail ="mail" :key="mail.id"> </mail-preview>
+              <mail-preview v-for="mail in mails" :currMail ="mail" :key="mail.id"></mail-preview>
             </section>    
     
     `,
@@ -20,24 +20,22 @@ export default {
         mailService.query()
             .then(mails => {
                 this.mails = mails;
-            })
-
+                console.log(this.mails) 
+            })  
     },
-    methods: {
-
+    mounted() {
+        
     },
     components: {
         mailPreview,
     },
-    watch: {
-        // '$route.params.selectedBookId' (bookId) {
-        //     console.log('route id', bookId);
-        //     mailService.getBookById(bookId)
-        //         .then(res => {
-        //             this.book = res;
-
-
-        //         })
-        // }
-    },
+    // watch: {
+    //     '$route.params.theMailId'() {
+    //         console.log('route id', this.mails.id);
+    //         mailService.getById(this.mails.id)
+    //             .then(res => {
+    //                 this.mails = res;
+    //         })
+    //     }
+    // },
 }

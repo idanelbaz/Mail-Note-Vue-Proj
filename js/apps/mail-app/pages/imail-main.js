@@ -9,11 +9,11 @@ export default {
         console.log('App has been Mounted!');
     },
     template: `
-      <div class="imail-main">
-    <app-header></app-header>
-    <app-side-bar></app-side-bar>
-    <app-list></app-list>
-    </div>
+        <div class="imail-main">
+            <app-header></app-header>
+            <app-side-bar></app-side-bar>
+            <app-list></app-list>
+        </div>
     `,
     components: {
         appHeader,
