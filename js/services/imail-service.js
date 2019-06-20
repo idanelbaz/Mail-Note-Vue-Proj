@@ -25,7 +25,7 @@ function createMail(subject, senderName, senderMailAdd, mailTxt) {
         isRead: false,
     };
 
-    return Promise.resolve(mail)
+    return mail;
 }
 
 function query() {
@@ -46,6 +46,7 @@ function getById(mailId) {
             const mail = mails.find(currMail => currMail.id === mailId);
             return Promise.resolve(mail);
         })
+
     return currMail;
 }
 

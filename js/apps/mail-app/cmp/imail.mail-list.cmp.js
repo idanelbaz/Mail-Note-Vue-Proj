@@ -6,8 +6,8 @@ import { mailService } from '../../../services/imail-service.js'
 export default {
     name: 'mail-list',
     template: `
-            <section class="mail-list">
-              <mail-preview></mail-preview>
+            <section v-if="mails" class="mail-list">
+              <mail-preview v-for="mail in mails" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
     `,
@@ -21,6 +21,7 @@ export default {
             .then(mails => {
                 this.mails = mails;
             })
+
     },
     methods: {
 
