@@ -6,10 +6,10 @@ const myRouter = new VueRouter({ routes: theRoutes })
 
 
 new Vue({
-    el:'#app',
+    el: '#app',
     template: `
         <div>
-            <home-page></home-page>
+            <router-view></router-view>
         </div>    
     `,
     components: {

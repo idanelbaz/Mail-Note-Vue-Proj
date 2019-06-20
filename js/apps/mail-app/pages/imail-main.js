@@ -1,5 +1,5 @@
-import appHeader from './cmp/imail-header.cmp.js';
-import appSideBar from './cmp/app-side-bar.cmp.js';
+import appHeader from '../cmp/imail-header.cmp.js';
+import appSideBar from '../cmp/app-side-bar.cmp.js';
 
 
 
