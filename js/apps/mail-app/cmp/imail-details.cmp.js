@@ -20,7 +20,7 @@ export default {
                         </div>
                     </div>
             </section>    
-    <imail-replay></imail-replay>
+   
     `,
     data() {
         return {
