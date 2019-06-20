@@ -1,4 +1,4 @@
-import filter from './search-filter.cmp.js';
+import searchFilter from './search-filter.cmp.js';
 
 
 export default {
@@ -12,6 +12,6 @@ export default {
     
     `,
     components: {
-        filter,
+        searchFilter,
     }
 }
