@@ -1,4 +1,4 @@
-import mailPreview from '../cmp/imail-preview.cmp.js';
+import mailPreview from '../cmp/imail-preview.cmp'
 
 
 export default {
