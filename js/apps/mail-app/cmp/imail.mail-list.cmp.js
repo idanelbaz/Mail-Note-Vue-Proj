@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             mails: null,
-            filterBy: '',
+            filterBy: { txt: '', whatShow: 'all' },
             isRead: false,
         }
     },
@@ -34,23 +34,33 @@ export default {
     },
     computed: {
         mailsForDisplay() {
-            if (!this.filterBy) return this.mails;
+            console.log(this.filterBy)
+            if (!this.filterBy.txt && this.filterBy.whatShow === 'all') return this.mails;
+            else if (!this.filterBy.txt && this.filterBy.whatShow === 'read') {
+                return this.mails.filter(mail => {
+                    return mail.isRead
+                })
+            } else if (!this.filterBy.txt && this.filterBy.whatShow === 'unread') {
+                return this.mails.filter(mail => {
+                    return !mail.isRead
+                })
+            }
+
             return this.mails.filter(mail => {
                 mail.subject = mail.subject.toLowerCase();
-                let renderMail = mail.subject.includes(this.filterBy);
-                return renderMail += mail.senderName.includes(this.filterBy);
+                let render = mail.subject.includes(this.filterBy.txt) && mail.senderName.includes(this.filterBy.txt);
+                if (this.filterBy.whatShow === 'all') return render;
+                else if (this.filterBy.whatShow === 'read') return mail.isRead
+                else return mail.isRead === false;
+
             })
 
-
         }
-
-    },
-    mounted() {
-
     },
     components: {
         mailPreview,
     },
+
 
 
 }
