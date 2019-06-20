@@ -20,8 +20,10 @@
 }
 
 .mail-preview {
-    background-color: #EEE;
+    background-color: rgb(250, 89, 89);
     display: flex;
+    cursor: pointer;
+    border-bottom: 1px solid #000;
     flex-direction: row;
     justify-content: space-between;
     font-weight: bold;
