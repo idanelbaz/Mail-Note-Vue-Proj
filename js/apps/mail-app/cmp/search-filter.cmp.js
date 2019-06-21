@@ -6,12 +6,12 @@ export default {
     name: 'search-filter',
     template: `
             <section class="filter">
-            <input class="search-name" type="text" v-model="filter.txt" @input="emitFilter"  placeholder="search by subject" autofocus/>
-            <select @input="emitFilter" v-model="filter.whatShow">
-                <option value="all">All</option>
-                <option value="read">Read</option>
-                <option value="unread">Unread</option>
-        </select>
+                <el-select @input="emitFilter" v-model="filter.whatShow">
+                    <el-option value="all">All</el-option>
+                    <el-option value="read">Read</el-option>
+                    <el-option value="unread">Unread</el-option>
+                </el-select>
+                <el-input class="search-name" type="text" v-model="filter.txt" @input="emitFilter"  placeholder="search by subject" autofocus/></el-input>
             </section>    
     
     `,

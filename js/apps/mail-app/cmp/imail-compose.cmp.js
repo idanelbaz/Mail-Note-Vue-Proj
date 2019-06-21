@@ -43,6 +43,11 @@ export default {
             if(!this.text) return this.text ='Cannot processes without text'
             mailService.addMail(this.subject, this.name, this.to, this.text)
             this.$router.push({ path: '/imail/'})
+            this.$notify({
+                title: 'Success',
+                message: 'The message sent successfully ',
+                type: 'success'
+              });
         }
     },
     components: {

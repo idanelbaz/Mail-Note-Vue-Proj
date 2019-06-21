@@ -16,7 +16,7 @@ export default {
                         <div>
                             <h1>{{mail.subject}}</h1>
                             {{mail.mailTxt}}
-                            <button>Replay</button>
+                            <el-button type="danger">Replay</el-button>
                         </div>
                     </div>
             </section>    
