@@ -23,6 +23,23 @@
     text-align: center;
 }
 
+
+.el-icon-position{
+    margin-right: 9px;   
+}
+.el-icon-message{
+    margin-right: 9px;   
+}
+.el-icon-star-off{
+    margin-right: 9px;   
+}
+.el-icon-delete{
+    margin-right: 9px;   
+}
+.el-icon-folder-opened{
+    margin-right: 9px;   
+}
+
 .app-side-bar a{
     text-decoration: none;
 }

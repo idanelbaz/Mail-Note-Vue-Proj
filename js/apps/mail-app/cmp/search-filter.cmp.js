@@ -6,7 +6,7 @@ export default {
     name: 'search-filter',
     template: `
             <section class="filter">
-            <input class="search-name" type="text" v-model="filter.txt" @input="emitFilter"  placeholder="search by name" autofocus/>
+            <input class="search-name" type="text" v-model="filter.txt" @input="emitFilter"  placeholder="search by subject" autofocus/>
             <select @input="emitFilter" v-model="filter.whatShow">
                 <option value="all">All</option>
                 <option value="read">Read</option>

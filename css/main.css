@@ -1,3 +1,20 @@
 @import url('./mail-header.css');
 @import url('./mail-details.css');
 @import url('./mail-compose.css');
+
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+  }
+  body{
+      font-family: Roboto;
+      margin: 0;
+  }
+
+  .header-nav{
+      text-decoration: none;
+  }
+  
+  .el-menu{
+    box-shadow: 0px -6px 18px #000;
+  }
