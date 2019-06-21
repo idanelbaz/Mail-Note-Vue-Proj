@@ -40,6 +40,27 @@ function query() {
     return Promise.resolve(gMails);
 }
 
+function OnlyTrash(mails) {
+    let mailing = mails.filter(mail => {
+        return mail.isTrash
+    })
+    console.log(mailing);
+    return mailing;
+}
+
+function onlyReg(mails) {
+    return mails.filter(mail => {
+        if (!mail.isTrash && !mail.isSent)
+            return mail;
+    })
+}
+
+function onlyFav(mails) {
+    return mails.filter(mail => {
+        return mail.isFav;
+    })
+}
+
 
 function getById(mailId) {
     let currMail = query()
@@ -68,14 +89,35 @@ function makeRead(currMail) {
     storageService.store('mails', gMails);
 }
 
+function moveToTrash(currMail) {
+    gMails.forEach(mail => {
+        if (mail.id === currMail.id)
+            mail.isTrash = true;
+    })
+    storageService.store('mails', gMails);
+}
+
+function moveToFav(currMail) {
+    gMails.forEach(mail => {
+        if (mail.id === currMail.id)
+            mail.isFav = true;
+    })
+    storageService.store('mails', gMails);
+}
+
 
 
 
 
 export const mailService = {
     createMail,
+    moveToFav,
     getById,
     query,
     addMail,
     makeRead,
+    moveToTrash,
+    OnlyTrash,
+    onlyReg,
+    onlyFav,
 }

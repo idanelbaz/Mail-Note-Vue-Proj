@@ -5,9 +5,12 @@ import imialCompose from './apps/mail-app/cmp/imail-compose.cmp.js';
 
 
 
+
 export default [
     { path: '/', component: homePage },
     { path: '/imail', component: iMailApp },
     { path: '/imail/:theMailId', component: mailDetails },
     { path: '/compose', component: imialCompose },
+    { path: '/trash', component: iMailApp },
+    { path: '/favorites', component: iMailApp },
 ]
