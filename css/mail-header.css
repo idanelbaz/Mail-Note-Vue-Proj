@@ -1,5 +1,6 @@
 .imail-header {
     display: flex;
+    grid-column: 2;
 }
 
 .imail-header img {
@@ -16,7 +17,14 @@
 
 .app-side-bar {
     grid-row: 2/span 6;
-    background-color: #EEE;
+    /* background-color: #EEE; */
+    padding:  14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.app-side-bar a{
+    text-decoration: none;
 }
 
 .mail-preview {
