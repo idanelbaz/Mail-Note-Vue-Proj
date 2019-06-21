@@ -24,6 +24,7 @@ function createMail(subject, senderName, senderMailAdd, mailTxt) {
         isTrash: false,
         isFav: false,
         isRead: false,
+        isSent: false,
     };
 
     return mail;
@@ -44,7 +45,6 @@ function OnlyTrash(mails) {
     let mailing = mails.filter(mail => {
         return mail.isTrash
     })
-    console.log(mailing);
     return mailing;
 }
 
@@ -61,6 +61,12 @@ function onlyFav(mails) {
     })
 }
 
+function onlySent(mails) {
+    return mails.filter(mail => {
+        return mail.isSent;
+    })
+}
+
 
 function getById(mailId) {
     let currMail = query()
@@ -73,7 +79,8 @@ function getById(mailId) {
 }
 
 function addMail(subject, senderName, senderMailAdd, mailTxt) {
-    gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt))
+    gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt));
+    gMails[gMails.length - 1].isSent = true;
     storageService.store('mails', gMails);
 }
 
@@ -120,4 +127,5 @@ export const mailService = {
     OnlyTrash,
     onlyReg,
     onlyFav,
+    onlySent,
 }

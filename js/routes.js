@@ -13,5 +13,6 @@ export default [
     { path: '/compose', component: imialCompose },
     { path: '/trash', component: iMailApp },
     { path: '/favorites', component: iMailApp },
+    { path: '/sent-mail', component: iMailApp },
     { path: '/inote', component: iNoteApp },
 ]

@@ -15,7 +15,7 @@ export default {
                         <p>Mail: <input type="text" v-model="to" ref="userName"></p>
                         <p>Subject: <input type="text" v-model="subject"></p>
                         <textarea v-model="text" name="" placeholder="Write your mail..."></textarea>
-                        <input  @click.stop.prevent="sendMail" type="submit" value="Submit"></input>
+                        <input @click.stop.prevent="sendMail" type="submit" value="Submit">
                     </form>
                 </div>
             </section>   
@@ -37,17 +37,17 @@ export default {
     methods: {
         sendMail() {
             console.log('Sent Mail')
-            if(!this.name) return this.name ='Cannot processes without name'
-            if(!this.to) return this.to ='Cannot processes without mail'
-            if(!this.subject) return this.subject ='Cannot processes without subject'
-            if(!this.text) return this.text ='Cannot processes without text'
+            if (!this.name) return this.name = 'Cannot processes without name'
+            if (!this.to) return this.to = 'Cannot processes without mail'
+            if (!this.subject) return this.subject = 'Cannot processes without subject'
+            if (!this.text) return this.text = 'Cannot processes without text'
             mailService.addMail(this.subject, this.name, this.to, this.text)
-            this.$router.push({ path: '/imail/'})
+            this.$router.push({ path: '/imail/' })
             this.$notify({
                 title: 'Success',
                 message: 'The message sent successfully ',
                 type: 'success'
-              });
+            });
         }
     },
     components: {
