@@ -30,8 +30,6 @@ export default {
         });
 
     },
-
-
     computed: {
         mailsForDisplay() {
             if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash(this.mails);
@@ -48,7 +46,6 @@ export default {
                     return !mail.isRead
                 })
             }
-
             return this.mails.filter(mail => {
                 mail.subject = mail.subject.toLowerCase();
                 let render = mail.subject.includes(this.filterBy.txt);
@@ -57,7 +54,6 @@ export default {
                 else return mail.isRead === false;
 
             })
-
         }
     },
     watch: {
@@ -69,7 +65,5 @@ export default {
     components: {
         mailPreview,
     },
-
-
 
 }

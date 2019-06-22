@@ -25,3 +25,12 @@
 .yellow {
     color: yellow;
 }
+
+.mail-replay{
+    background: #FFF;
+    position: absolute;
+    bottom: 0;
+    right: 115px;
+    width: 600px;
+    text-align: center;
+}

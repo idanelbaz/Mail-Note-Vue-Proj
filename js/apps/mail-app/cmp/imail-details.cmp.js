@@ -11,12 +11,20 @@ export default {
                 <app-header></app-header>
                 <app-side-bar></app-side-bar>
                     <div class="mail-section">
-                    <img :src="mail.profileImg" alt="">  <h1 style="display: inline-block;">{{mail.senderName}}</h1>  <span><{{mail.senderMailAdd}}></span>
+                    <img :src="mail.profileImg" alt="">  <h1 style="display: inline-block;">{{mail.senderName}}</h1> 
+                     <span><{{mail.senderMailAdd}}></span>
                         <p>{{mail.time}}</p>
                         <div>
                             <h1>{{mail.subject}}</h1>
                             {{mail.mailTxt}}
-                            <el-button type="danger">Replay</el-button>
+                            <div v-if="showReplay" class="mail-replay">
+                                <el-input :disabled="true" :placeholder="senderMail"></el-input>
+                                <el-input type="textarea" rows="3" maxlength="100" v-model="text" show-word-limit>
+
+                                </el-input>
+                                <el-button @click="sendMail">Send</el-button>
+                            </div>
+                            <el-button @click="mailReplay" type="danger">{{btnTxt}}</el-button>
                         </div>
                     </div>
             </section>    
@@ -25,6 +33,11 @@ export default {
     data() {
         return {
             mail: null,
+            text: '',
+            senderMail: null,
+            showReplay: false,
+            subject: null,
+            senderName: null
         }
     },
     created() {
@@ -32,10 +45,30 @@ export default {
         mailService.getById(mailId)
             .then(mail => {
                 this.mail = mail;
+                this.senderMail = mail.senderMailAdd;
+                this.subject = mail.subject;
+                this.senderName = mail.senderName;
             })
     },
     methods: {
-
+        mailReplay(){
+            this.showReplay = !this.showReplay
+            if(this.showReplay === true) return 'Close'
+        },
+        sendMail() {
+            mailService.addMail(this.subject, this.senderName, this.senderMail, this.text)
+            this.$router.push({ path: '/sent-mail/' })
+            this.$notify({
+                title: 'Success',
+                message: 'The message sent successfully ',
+                type: 'success'
+            });
+        }
+    },
+    computed: {
+        btnTxt() {
+            return (this.showReplay)? 'Close' : 'Replay'
+        }
     },
     components: {
         imailCompose,
