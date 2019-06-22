@@ -8,6 +8,7 @@ export default {
     name: 'mail-list',
     template: `
             <section v-if="mails"  class="mail-list">
+
               <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
@@ -36,6 +37,7 @@ export default {
             else if (this.$route.path === '/imail') this.mails = mailService.onlyReg(this.mails);
             else if (this.$route.path === '/favorites') this.mails = mailService.onlyFav(this.mails);
             else this.mails = mailService.onlySent(this.mails);
+
             if (!this.filterBy.txt && this.filterBy.whatShow === 'all') return this.mails;
             else if (!this.filterBy.txt && this.filterBy.whatShow === 'read') {
                 return this.mails.filter(mail => {

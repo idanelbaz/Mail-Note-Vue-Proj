@@ -12,13 +12,17 @@ export default {
                     <el-option value="unread">Unread</el-option>
                 </el-select>
                 <el-input class="search-name" type="text" v-model="filter.txt" @input="emitFilter"  placeholder="search by subject" autofocus/></el-input>
+                <el-select @input="emitFilter" v-model="sort.placeholder">
+                    <el-option value="date">Date</el-option>
+                    <el-option value="name">Name</el-option>
+                </el-select>
             </section>    
     
     `,
     data() {
         return {
             filter: { txt: '', whatShow: 'all' },
-
+            sort: {txt : '', placeholder: 'Sort By'}
         }
     },
     created() {

@@ -13,18 +13,17 @@ export default {
                     <div class="mail-section">
                     <img :src="mail.profileImg" alt="">  <h1 style="display: inline-block;">{{mail.senderName}}</h1> 
                      <span><{{mail.senderMailAdd}}></span>
-                        <p>{{mail.time}}</p>
+                            <span>{{mail.time}}</span>
                         <div>
                             <h1>{{mail.subject}}</h1>
-                            {{mail.mailTxt}}
+                            <p>{{mail.mailTxt}}</p>
+                            <el-button @click="mailReplay" type="danger">{{btnTxt}}</el-button>
                             <div v-if="showReplay" class="mail-replay">
                                 <el-input :disabled="true" :placeholder="senderMail"></el-input>
-                                <el-input type="textarea" rows="3" maxlength="100" v-model="text" show-word-limit>
-
+                                <el-input type="textarea" rows="3" placeholder="Write your reply..." maxlength="100" v-model="text" show-word-limit>
                                 </el-input>
                                 <el-button @click="sendMail">Send</el-button>
                             </div>
-                            <el-button @click="mailReplay" type="danger">{{btnTxt}}</el-button>
                         </div>
                     </div>
             </section>    
@@ -46,14 +45,13 @@ export default {
             .then(mail => {
                 this.mail = mail;
                 this.senderMail = mail.senderMailAdd;
-                this.subject = mail.subject;
+                this.subject = 'RE:'+mail.subject;
                 this.senderName = mail.senderName;
             })
     },
     methods: {
         mailReplay(){
             this.showReplay = !this.showReplay
-            if(this.showReplay === true) return 'Close'
         },
         sendMail() {
             mailService.addMail(this.subject, this.senderName, this.senderMail, this.text)
@@ -67,7 +65,7 @@ export default {
     },
     computed: {
         btnTxt() {
-            return (this.showReplay)? 'Close' : 'Replay'
+            return (this.showReplay)? 'Close' : 'Reply'
         }
     },
     components: {

@@ -27,3 +27,4 @@ body {
 .el-tabs__item.is-active{
     color: rgb(250, 89, 89);
 }
+button:focus {outline:0;}
