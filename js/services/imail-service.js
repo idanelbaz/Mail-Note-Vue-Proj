@@ -42,28 +42,28 @@ function query() {
     return Promise.resolve(gMails);
 }
 
-function OnlyTrash(mails) {
-    let mailing = mails.filter(mail => {
+function OnlyTrash() {
+    let mailing = gMails.filter(mail => {
         return mail.isTrash
     })
     return mailing;
 }
 
-function onlyReg(mails) {
-    return mails.filter(mail => {
+function onlyReg() {
+    return gMails.filter(mail => {
         if (!mail.isTrash && !mail.isSent)
             return mail;
     })
 }
 
-function onlyFav(mails) {
-    return mails.filter(mail => {
+function onlyFav() {
+    return gMails.filter(mail => {
         return mail.isFav;
     })
 }
 
-function onlySent(mails) {
-    return mails.filter(mail => {
+function onlySent() {
+    return gMails.filter(mail => {
         return mail.isSent;
     })
 }

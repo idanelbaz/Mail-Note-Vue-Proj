@@ -7,7 +7,7 @@ import eventBus from '../../../event-bus.js';
 export default {
     name: 'mail-list',
     template: `
-            <section v-if="mails"  class="mail-list">
+            <section v-if="mails" class="mail-list">
               <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
@@ -34,13 +34,13 @@ export default {
         }))
     },
     computed: {
+
         mailsForDisplay() {
 
-            if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash(this.mails);
-            else if (this.$route.path === '/imail') this.mails = mailService.onlyReg(this.mails);
-            else if (this.$route.path === '/favorites') this.mails = mailService.onlyFav(this.mails);
-            else this.mails = mailService.onlySent(this.mails);
-
+            if (this.$route.path === '/imail') this.mails = mailService.onlyReg();
+            else if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash();
+            else if (this.$route.path === '/favorites') this.mails = mailService.onlyFav();
+            else this.mails = mailService.onlySent();
             if (!this.filterBy.txt && this.filterBy.whatShow === 'all') return this.mails;
             else if (!this.filterBy.txt && this.filterBy.whatShow === 'read') {
                 return this.mails.filter(mail => {
@@ -51,16 +51,16 @@ export default {
                     return !mail.isRead
                 })
             }
-            let books = this.mails.filter(mail => {
+            let mailsToFilter = this.mails.filter(mail => {
                 return mail.subject.includes(this.filterBy.txt);
             });
-            if (this.filterBy.whatShow === 'all') return books;
+            if (this.filterBy.whatShow === 'all') return mailsToFilter;
             else if (this.filterBy.whatShow === 'read') {
-                return books.filter(book => {
+                return mailsToFilter.filter(book => {
                     return book.isRead;
                 })
             } else if (this.filterBy.whatShow === 'unread') {
-                return books.filter(book => {
+                return mailsToFilter.filter(book => {
                     return !book.isRead;
                 })
             }
@@ -68,7 +68,7 @@ export default {
     },
     watch: {
         '$route' (to, from) {
-            console.log(to)
+            // console.log(to.path)
         }
     },
     components: {
