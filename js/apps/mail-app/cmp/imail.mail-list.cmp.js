@@ -7,8 +7,7 @@ import eventBus from '../../../event-bus.js';
 export default {
     name: 'mail-list',
     template: `
-            <section v-if="mails"  class="mail-list">
-
+            <section :mails="checkPage" v-if="mails"  class="mail-list">
               <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
@@ -16,7 +15,7 @@ export default {
     data() {
         return {
             mails: null,
-            filterBy: { txt: '', whatShow: 'all' },
+            filterBy: { txt: '', whatShow: 'all', nameOrDate: '' },
             isRead: false,
         }
     },
@@ -30,9 +29,15 @@ export default {
             this.filterBy = txt
         });
 
+        eventBus.$on('dateOrName', (filter => {
+            this.filterBy.nameOrDate = filter;
+        }))
+
     },
     computed: {
+
         mailsForDisplay() {
+
             if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash(this.mails);
             else if (this.$route.path === '/imail') this.mails = mailService.onlyReg(this.mails);
             else if (this.$route.path === '/favorites') this.mails = mailService.onlyFav(this.mails);
@@ -48,15 +53,22 @@ export default {
                     return !mail.isRead
                 })
             }
-            return this.mails.filter(mail => {
-                mail.subject = mail.subject.toLowerCase();
-                let render = mail.subject.includes(this.filterBy.txt);
-                if (this.filterBy.whatShow === 'all') return render;
-                else if (this.filterBy.whatShow === 'read') return mail.isRead
-                else return mail.isRead === false;
-
-            })
+            let books = this.mails.filter(mail => {
+                return mail.subject.includes(this.filterBy.txt);
+            });
+            if (this.filterBy.whatShow === 'all') return books;
+            else if (this.filterBy.whatShow === 'read') {
+                return books.filter(book => {
+                    return book.isRead;
+                })
+            } else if (this.filterBy.whatShow === 'unread') {
+                return books.filter(book => {
+                    return !book.isRead;
+                })
+            }
         }
+
+
     },
     watch: {
         '$route' (to, from) {
