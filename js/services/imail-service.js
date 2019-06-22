@@ -80,6 +80,11 @@ function getById(mailId) {
 }
 
 function howManyRead() {
+    if (!storageService.load('mails')) {
+        storageService.store('mails', gMails)
+    } else {
+        gMails = storageService.load('mails');
+    }
     let sent = gMails.filter(mail => {
         return mail.isRead
     })
@@ -90,6 +95,8 @@ function howManyRead() {
 function addMail(subject, senderName, senderMailAdd, mailTxt) {
     gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt));
     gMails[gMails.length - 1].isSent = true;
+    gMails[gMails.length - 1].isRead = true;
+    gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt));
     storageService.store('mails', gMails);
 }
 

@@ -19,11 +19,11 @@ export default {
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
     <el-menu-item index="1">
     <i class="el-icon-position side-bar-icon"></i>
-    <router-link to="/compose"><span><el-badge :value="12" class="item">New Mail</el-badge></span></router-link>
+    <router-link to="/compose"><span>New Mail</el-badge></span></router-link>
       </el-menu-item>
     <el-menu-item index="2">
     <i class="el-icon-message side-bar-icon"></i>
-    <router-link  to="/imail"><span>Inbox</span></router-link>
+    <router-link  to="/imail"><span><el-badge :value="check" class="item">Inbox</span></router-link>
       </el-menu-item>
       <el-menu-item index="3">
       <i class="el-icon-star-off side-bar-icon"></i>
@@ -40,7 +40,6 @@ export default {
     </el-menu>
     </el-row>
                 
-                <p>You have: {{check}} unread mails</p>
             </section>    
     
     `,
