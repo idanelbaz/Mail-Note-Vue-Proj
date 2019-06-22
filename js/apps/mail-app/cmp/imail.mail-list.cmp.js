@@ -52,6 +52,7 @@ export default {
                 })
             }
             let mailsToFilter = this.mails.filter(mail => {
+                mail.subject = mail.subject.toLowerCase()
                 return mail.subject.includes(this.filterBy.txt);
             });
             if (this.filterBy.whatShow === 'all') return mailsToFilter;
