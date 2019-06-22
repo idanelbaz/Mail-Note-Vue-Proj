@@ -63,11 +63,11 @@ export default {
         },
         moveItemToTrash() {
             mailService.moveToTrash(this.currMail);
-            this.$router.push({ path: '/imail/' })
+            this.$router.go({ path: '/imail/' })
         },
         moveItemToFav() {
             mailService.moveToFav(this.currMail);
-            this.$router.push({ path: '/imail/' })
+            this.$router.go({ path: '/imail/' })
         }
     },
     components: {

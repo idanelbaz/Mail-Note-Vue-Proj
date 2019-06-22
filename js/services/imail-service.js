@@ -79,6 +79,14 @@ function getById(mailId) {
     return currMail;
 }
 
+function howManyRead() {
+    let sent = gMails.filter(mail => {
+        return mail.isRead
+    })
+    return gMails.length - sent.length;
+
+}
+
 function addMail(subject, senderName, senderMailAdd, mailTxt) {
     gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt));
     gMails[gMails.length - 1].isSent = true;
@@ -86,6 +94,7 @@ function addMail(subject, senderName, senderMailAdd, mailTxt) {
 }
 
 function makeRead(currMail) {
+    console.log(gMails)
     gMails.forEach(mail => {
         if (mail.id === currMail.id)
             if (mail.isRead === true) return
@@ -129,4 +138,5 @@ export const mailService = {
     onlyReg,
     onlyFav,
     onlySent,
+    howManyRead,
 }

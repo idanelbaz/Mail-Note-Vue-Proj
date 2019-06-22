@@ -1,3 +1,7 @@
+import { mailService } from '../../../services/imail-service.js';
+
+
+
 export default {
     name: 'app-side-bar',
     template: `
@@ -36,13 +40,14 @@ export default {
     </el-menu>
     </el-row>
                 
-                <p>unread status</p>
+                <p>You have: {{check}} unread mails</p>
             </section>    
     
     `,
     data() {
         return {
-            tabPosition: 'left'
+            tabPosition: 'left',
+            mailsRead: 0,
         }
     },
     created() {
@@ -51,12 +56,17 @@ export default {
     methods: {
         handleOpen(key, keyPath) {
             console.log(key, keyPath);
-          },
-          handleClose(key, keyPath) {
+        },
+        handleClose(key, keyPath) {
             console.log(key, keyPath);
-          }
+        }
     },
     components: {
 
-    }
+    },
+    computed: {
+        check() {
+            return mailService.howManyRead()
+        }
+    },
 }
