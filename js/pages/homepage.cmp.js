@@ -1,7 +1,7 @@
 export default {
     template: `
-    <section class="home">
-        <h1>Welcome To AppSus</h1>
+    <section class="home-page">
+        <img src="../imgs/bg.png" id="bg"/>
     </section>
     `
 }

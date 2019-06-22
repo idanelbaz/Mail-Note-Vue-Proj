@@ -7,7 +7,7 @@ import eventBus from '../../../event-bus.js';
 export default {
     name: 'mail-list',
     template: `
-            <section :mails="checkPage" v-if="mails"  class="mail-list">
+            <section v-if="mails"  class="mail-list">
               <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
@@ -32,10 +32,8 @@ export default {
         eventBus.$on('dateOrName', (filter => {
             this.filterBy.nameOrDate = filter;
         }))
-
     },
     computed: {
-
         mailsForDisplay() {
 
             if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash(this.mails);
@@ -67,14 +65,11 @@ export default {
                 })
             }
         }
-
-
     },
     watch: {
         '$route' (to, from) {
             console.log(to)
         }
-
     },
     components: {
         mailPreview,
