@@ -16,9 +16,6 @@ body {
     padding: 10px;
 }
 
-.el-menu {
-    box-shadow: 0px -6px 18px #000;
-}
 
 .el-tabs__active-bar {
     background-color: rgb(250, 89, 89);
