@@ -5,16 +5,24 @@ import { noteService } from '../../../services/inote-service.js'
 export default {
     template: `
         <section class="inote-header">
-        <el-input  type="text" v-model="note.url" @enter="addNote" autofocus placeholder="What on your mind..." clearable >
-        </el-input>
-        <div class="btn-input-cont">
+            <el-input  type="text" v-model="note.url" @enter="addNote" autofocus placeholder="What on your mind..." clearable >
+            </el-input>
+         <div class="btn-input-cont">
         <!-- <el-button class="el-icon-position"></el-button>  -->
-        <el-button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></el-button>
-        <el-button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></el-button>
-        <el-button @click.prevent="chooseImg" class="el-icon-picture-outline"></el-button>
-        <el-button @click.prevent="chooseSound" class="el-icon-headset"></el-button>
-        <el-button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</el-button>
-        </div>
+            <el-tooltip content="Text" placement="bottom" effect="light">
+                <el-button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></el-button>
+            </el-tooltip>
+            <el-tooltip content="Add Video" placement="bottom" effect="light">
+                <el-button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></el-button>
+            </el-tooltip>
+            <el-tooltip content="Add Image" placement="bottom" effect="light">
+                <el-button @click.prevent="chooseImg" class="el-icon-picture-outline"></el-button>
+            </el-tooltip>
+            <el-tooltip content="Add Audio" placement="bottom" effect="light">
+                <el-button @click.prevent="chooseSound" class="el-icon-headset"></el-button>
+            </el-tooltip>
+                <el-button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</el-button>
+         </div>
         
 
 
