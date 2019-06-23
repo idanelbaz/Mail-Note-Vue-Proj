@@ -7,9 +7,9 @@ import { utilService } from './util.service.js'
 
 
 let gNotes = [
-    createNote('https://api.adorable.io/avatars/80/moshe.png', 'img'),
-    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
-    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/moshe.png', 'noteImg', 'hi'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'noteImg', 'hi'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'noteImg', 'hi'),
 ];
 
 
