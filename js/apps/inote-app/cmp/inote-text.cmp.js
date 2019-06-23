@@ -57,6 +57,7 @@ export default {
         },
         addNote() {
             if (this.note.type === 'txt') noteService.addNote(' ', this.note.type, this.note.url)
+            else if (this.note.type === 'noteVideo') noteService.addNoteVideo(this.note.type, this.note.url);
             else noteService.addNote(this.note.url, this.note.type)
             console.log(this.note)
         }
