@@ -9,6 +9,11 @@ import { utilService } from './util.service.js'
 let gNotes = [
     createNote('Shalom', 'https://api.adorable.io/avatars/80/moshe.png'),
     createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
 ];
 
 function createNote(text,img) {

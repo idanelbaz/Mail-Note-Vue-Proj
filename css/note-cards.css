@@ -1,0 +1,11 @@
+.notes-list-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.note-container{
+    width: 320px;
+    height: 170px;
+    background-color: #EEE;
+    margin-bottom: 20px;
+}
