@@ -2,6 +2,7 @@
 @import url('./mail-details.css');
 @import url('./mail-compose.css');
 @import url('./note-header.css');
+@import url('./note-cards.css');
 
 @font-face {
     font-family: Roboto;
