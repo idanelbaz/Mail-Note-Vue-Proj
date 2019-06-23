@@ -1,11 +1,17 @@
+import inoteText from './cmp/inote-text.cmp.js'
+import inoteList from './cmp/inotes-list.cmp.js'
+
 
 export default {
     template: `
         <div class="inote-main">
-            <h1>Coming Soon..</h1>
+            <inote-text></inote-text>
+            <el-divider></el-divider>
+            <inote-list></inote-list>
         </div>
     `,
     components: {
-
+        inoteText,
+        inoteList
     },
 }
