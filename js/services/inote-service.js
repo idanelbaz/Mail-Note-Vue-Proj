@@ -38,6 +38,17 @@ function addBGToNote(note, color) {
     storageService.store('notes', gNotes);
 }
 
+function saveEdit(note,input){
+    let currNote = findNoteIdx(note.id);
+    gNotes[currNote].url = input;
+    storageService.store('notes', gNotes);
+}
+
+function saveTxtEdit(note, input) {
+    let currNote = findNoteIdx(note.id);
+    gNotes[currNote].text = input;
+    storageService.store('notes', gNotes);
+}
 
 function deleteNote(note) {
     gNotes.splice(findNoteIdx(note), 1);
@@ -91,4 +102,6 @@ export const noteService = {
     addBGToNote,
     deleteNote,
     getNotes,
+    saveEdit,
+    saveTxtEdit
 }

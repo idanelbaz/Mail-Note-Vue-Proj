@@ -48,7 +48,7 @@ export default {
         },
         chooseImg() {
             this.note.url = 'Enter image URL ';
-            this.note.type = 'Img';
+            this.note.type = 'noteImg';
         },
         chooseSound() {
             this.note.url = 'Enter sound URL ';
@@ -56,13 +56,14 @@ export default {
         },
         chooseVideo() {
             this.note.url = 'Enter video URL';
-            this.note.type = 'video';
+            this.note.type = 'noteVideo';
         },
 
 
         addNote() {
             if (this.note.type === 'txt') noteService.addNote(' ', this.note.type, this.note.url)
             else noteService.addNote(this.note.url, this.note.type)
+            console.log(this.note)
         }
     },
 }
