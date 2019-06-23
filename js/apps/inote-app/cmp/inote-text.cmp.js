@@ -53,7 +53,6 @@ export default {
 
 
         addNote() {
-            console.log(this.note)
             if (this.note.type === 'txt') noteService.addNote(' ', this.note.type, this.note.url)
             else noteService.addNote(this.note.url, this.note.type)
         }

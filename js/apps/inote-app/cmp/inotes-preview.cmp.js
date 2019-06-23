@@ -26,12 +26,8 @@ export default {
         deleteNote(note) {
             noteService.deleteNote(note)
         },
-        pinNote(note) {
-            noteService.addToPin(note);
-        },
-        changeBG(color) {
-            console.log(this.currNote)
-            noteService.addBGToNote(this.currNote, color)
+        pinNote() {
+            noteService.addToPin(this.currNote);
         }
     },
 }
