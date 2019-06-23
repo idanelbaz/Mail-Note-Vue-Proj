@@ -7,7 +7,7 @@ export default {
             {{currNote.text}}
             <div class="note-tools">
             <button @click="pinNote" class="edit-btn"><i class="el-icon-paperclip"></i></button>
-                <el-color-picker @input="changeBG" v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
+                <el-color-picker @change="changeBG" v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
                 <button class="edit-btn"><i class="el-icon-edit-outline"></i></button>
                 <button @click="deleteNote" class="edit-btn"><i class="el-icon-delete-solid"></i></button>
             </div>
@@ -18,7 +18,7 @@ export default {
     data() {
         return {
             myStyle: {
-                backgroundColor: '',
+                backgroundColor: this.currNote.background,
             }
         }
     },
@@ -28,6 +28,10 @@ export default {
         },
         pinNote() {
             noteService.addToPin(this.currNote);
+        },
+        changeBG() {
+            noteService.addBGToNote(this.currNote, this.myStyle.backgroundColor)
+
         }
     },
 }
