@@ -32,9 +32,19 @@ function addNote(url = '', type, txt = '') {
 }
 
 function addBGToNote(note, color) {
-    let currNote = findNoteIdx(note);
-    gNotes[currNote].background = color;
+    gNotes.forEach(currNote => {
+        if (currNote.id === note.id)
+            currNote.background = color;
+    })
     storageService.store('notes', gNotes);
+}
+
+function addBGToPin(note, color) {
+    gPin.forEach(currNote => {
+        if (currNote.id === note.id)
+            currNote.background = color;
+    })
+    storageService.store('notePin', gPin);
 }
 
 function deleteNote(note) {
@@ -54,19 +64,24 @@ function findNoteIdx(noteId) {
     })
 }
 
+function findPinIdx(noteId) {
+    return gPin.findIndex(note => {
+        return note.id === noteId
+    })
+}
+
 function addToPin(note) {
-    console.log(findNoteIdx(note.id))
     gPin.unshift(note);
     gNotes.splice(findNoteIdx(note.id), 1);
     storageService.store('notes', gNotes);
     storageService.store('notePin', gPin);
-    console.log(gPin)
-    console.log(gNotes)
+
 }
 
 function removeFromPin(note) {
     gNotes.unshift(note);
-    gPin.splice(findNoteIdx(note.id), 1);
+    console.log(findPinIdx(note.id))
+    gPin.splice(findPinIdx(note.id), 1);
     storageService.store('notes', gNotes);
     storageService.store('notePin', gPin);
 }
@@ -102,5 +117,6 @@ export const noteService = {
     queryPin,
     removeFromPin,
     addBGToNote,
-    deleteNote
+    deleteNote,
+    addBGToPin,
 }
