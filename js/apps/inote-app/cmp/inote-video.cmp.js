@@ -27,8 +27,8 @@ export default {
         }
     },
     methods: {
-        deleteNote(note) {
-            noteService.deleteNote(note)
+        deleteNote() {
+            noteService.deleteNote(this.currNote)
         },
         pinNote() {
             noteService.addToPin(this.currNote);
@@ -40,7 +40,7 @@ export default {
         },
         changeVideoUrl() {
             this.isEdit = !this.isEdit
-            noteService.saveEdit(this.currNote ,this.input);
+            noteService.saveEdit(this.currNote, this.input);
         },
         showEditor() {
             this.isEdit = !this.isEdit

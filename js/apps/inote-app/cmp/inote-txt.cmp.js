@@ -29,8 +29,8 @@ export default {
         }
     },
     methods: {
-        deleteNote(note) {
-            noteService.deleteNote(note)
+        deleteNote() {
+            noteService.deleteNote(this.currNote)
         },
         pinNote() {
             noteService.addToPin(this.currNote);
@@ -38,11 +38,11 @@ export default {
         },
         changeBG() {
             noteService.addBGToNote(this.currNote, this.myStyle.backgroundColor)
-            // eventBus.$emit('addPin');
+                // eventBus.$emit('addPin');
         },
         changeText() {
             this.isEdit = !this.isEdit
-            noteService.saveTxtEdit(this.currNote ,this.textarea);
+            noteService.saveTxtEdit(this.currNote, this.textarea);
         },
         showEditor() {
             this.isEdit = !this.isEdit

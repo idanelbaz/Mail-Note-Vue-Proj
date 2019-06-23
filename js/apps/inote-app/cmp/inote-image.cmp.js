@@ -27,8 +27,8 @@ export default {
         }
     },
     methods: {
-        deleteNote(note) {
-            noteService.deleteNote(note)
+        deleteNote() {
+            noteService.deleteNote(this.currNote)
         },
         pinNote() {
             noteService.addToPin(this.currNote);
@@ -36,14 +36,14 @@ export default {
         },
         changeBG() {
             noteService.addBGToNote(this.currNote, this.myStyle.backgroundColor)
-            // eventBus.$emit('addPin');
+                // eventBus.$emit('addPin');
         },
         showEditor() {
             this.isEdit = !this.isEdit
         },
         changeImgUrl() {
             this.isEdit = !this.isEdit
-            noteService.saveEdit(this.currNote ,this.input);
+            noteService.saveEdit(this.currNote, this.input);
         }
     },
 }
