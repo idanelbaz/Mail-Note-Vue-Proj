@@ -7,23 +7,29 @@ import { utilService } from './util.service.js'
 
 
 let gNotes = [
-    createNote('Shalom', 'https://api.adorable.io/avatars/80/moshe.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('https://api.adorable.io/avatars/80/moshe.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
 ];
 
-function createNote(text,img) {
+function createNote(url, type) {
     let note = {
         id: utilService.makeId(),
-        text: text,
-        img: img,
+        text: '',
+        url: url,
+        type: type,
         isPinned: false,
     };
     return note;
+}
+
+function addNote(url, type) {
+    gNotes.unshift(createNote(url, type))
+    storageService.store('notes', gNotes);
 }
 
 function query() {
@@ -39,5 +45,5 @@ function query() {
 
 export const noteService = {
     query,
-
+    addNote,
 }
