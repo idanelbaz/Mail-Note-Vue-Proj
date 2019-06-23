@@ -16,6 +16,7 @@ function createNote(text,img) {
         id: utilService.makeId(),
         text: text,
         img: img,
+        isPinned: false,
     };
     return note;
 }

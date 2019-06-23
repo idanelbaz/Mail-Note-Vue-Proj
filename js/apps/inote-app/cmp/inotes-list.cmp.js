@@ -3,7 +3,7 @@ import inotesPreview from './inotes-preview.cmp.js'
 export default {
     template:`
     <section v-if="notes">
-    <inotes-preview v-for="note in notes" :note="notes" :key="notes.id"> </inotes-preview>
+    <inotes-preview v-for="note in notes" :note="notes" :key="notes.id"></inotes-preview>
     </section>
     `,
     data() {
