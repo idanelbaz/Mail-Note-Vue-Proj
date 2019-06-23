@@ -12,14 +12,20 @@ let gNotes = [
     createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
 ];
 
-function createNote(text,img) {
+function createNote(url, type) {
     let note = {
         id: utilService.makeId(),
-        text: text,
-        img: img,
+        text: '',
+        url: url,
+        type: type,
         isPinned: false,
     };
     return note;
+}
+
+function addNote(url, type) {
+    gNotes.unshift(createNote(url, type))
+    storageService.store('notes', gNotes);
 }
 
 function query() {
@@ -35,5 +41,5 @@ function query() {
 
 export const noteService = {
     query,
-
+    addNote,
 }

@@ -1,4 +1,5 @@
 import eventBus from '../../../event-bus.js';
+import { noteService } from '../../../services/inote-service.js'
 
 
 export default {
@@ -8,11 +9,11 @@ export default {
         </el-input>
         <div class="btn-input-cont">
         <!-- <el-button class="el-icon-position"></el-button>  -->
-        <el-button @click="chooseTxt"  class="el-icon-edit-outline"></el-button>
-        <el-button  @click="chooseVideo" class="el-icon-video-camera-solid"></el-button>
-        <el-button @click="chooseImg" class="el-icon-picture-outline"></el-button>
-        <el-button @click="chooseSound" class="el-icon-headset"></el-button>
-        <el-button @click.enter="addNote" type="success" class="add-note-btn" plain>Add</el-button>
+        <button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></button>
+        <button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></button>
+        <button @click.prevent="chooseImg" class="el-icon-picture-outline"></button>
+        <button @click.prevent="chooseSound" class="el-icon-headset"></button>
+        <button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</button>
         </div>
         
 
@@ -48,13 +49,14 @@ export default {
             this.note.type = 'sound';
         },
         chooseVideo() {
-            this.text = 'Enter video URL ';
+            this.note.text = 'Enter video URL';
             this.note.type = 'video';
         },
 
 
         addNote() {
-            eventBus.$emit('chooshedNote', this.note);
+            noteService.addNote(this.note.text, this.note.type)
+                // eventBus.$emit('chooshedNote', this.note);
         }
     },
 }
