@@ -8,7 +8,7 @@ export default {
     name: 'mail-list',
     template: `
             <section v-if="mails" class="mail-list">
-              <mail-preview  v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
+              <mail-preview v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"> </mail-preview>
             </section>    
     
     `,
@@ -35,8 +35,11 @@ export default {
     },
     computed: {
 
-        mailsForDisplay() {
 
+        mailsForDisplay() {
+            if (this.filterBy.nameOrDate === 'Name') {
+                return mailService.sortByName(this.mails);
+            } else if (this.filterBy.nameOrDate === 'Date') return mailService.sortByDate(this.mails);
             if (this.$route.path === '/imail') this.mails = mailService.onlyReg();
             else if (this.$route.path === '/trash') this.mails = mailService.OnlyTrash();
             else if (this.$route.path === '/favorites') this.mails = mailService.onlyFav();

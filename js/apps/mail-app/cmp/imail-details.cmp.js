@@ -45,12 +45,12 @@ export default {
             .then(mail => {
                 this.mail = mail;
                 this.senderMail = mail.senderMailAdd;
-                this.subject = 'RE:'+mail.subject;
+                this.subject = 'RE:' + mail.subject;
                 this.senderName = mail.senderName;
             })
     },
     methods: {
-        mailReplay(){
+        mailReplay() {
             this.showReplay = !this.showReplay
         },
         sendMail() {
@@ -65,7 +65,7 @@ export default {
     },
     computed: {
         btnTxt() {
-            return (this.showReplay)? 'Close' : 'Reply'
+            return (this.showReplay) ? 'Close' : 'Reply'
         }
     },
     components: {

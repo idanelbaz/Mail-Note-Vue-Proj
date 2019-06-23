@@ -7,7 +7,7 @@
 }
 
 .mail-section {
-    background-color: rgb(250, 89, 89);
+    background-color: #EEE;
     grid-column: 2/span 6;
     grid-row: 2/span 6;
     padding: 30px;
@@ -26,7 +26,7 @@
     color: yellow;
 }
 
-.mail-replay{
+.mail-replay {
     background: #FFF;
     position: absolute;
     bottom: 0;

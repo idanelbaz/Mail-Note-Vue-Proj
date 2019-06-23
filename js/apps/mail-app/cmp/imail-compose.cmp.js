@@ -42,7 +42,7 @@ export default {
             if (!this.subject) return this.subject = 'Cannot processes without subject'
             if (!this.text) return this.text = 'Cannot processes without text'
             mailService.addMail(this.subject, this.name, this.to, this.text)
-            this.$router.push({ path: '/imail/' })
+            this.$router.push({ path: '/imail' })
             this.$notify({
                 title: 'Success',
                 message: 'The message sent successfully ',

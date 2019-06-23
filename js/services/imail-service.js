@@ -21,6 +21,7 @@ function createMail(subject, senderName, senderMailAdd, mailTxt) {
         senderName: senderName,
         senderMailAdd: senderMailAdd,
         time: moment().format('LLL'),
+        timeToClac: Date.now(),
         mailTxt: mailTxt,
         isTrash: false,
         isFav: false,
@@ -40,6 +41,27 @@ function query() {
     }
 
     return Promise.resolve(gMails);
+}
+
+function sortByName(mails) {
+    return mails.sort(function(a, b) {
+        var nameA = a.senderName.toUpperCase();
+        var nameB = b.senderName.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    });
+}
+
+function sortByDate(mails) {
+    return mails.sort(function(a, b) {
+        return b.timeToClac - a.timeToClac;
+    });
 }
 
 function OnlyTrash() {
@@ -93,15 +115,14 @@ function howManyRead() {
 }
 
 function addMail(subject, senderName, senderMailAdd, mailTxt) {
-    gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt));
-    gMails[gMails.length - 1].isSent = true;
-    gMails[gMails.length - 1].isRead = true;
-    gMails.push(createMail(subject, senderName, senderMailAdd, mailTxt));
+    gMails.unshift(createMail(subject, senderName, senderMailAdd, mailTxt));
+    gMails[0].isSent = true;
+    gMails[0].isRead = true;
+    gMails.unshift(createMail(subject, senderName, senderMailAdd, mailTxt));
     storageService.store('mails', gMails);
 }
 
 function makeRead(currMail) {
-    console.log(gMails)
     gMails.forEach(mail => {
         if (mail.id === currMail.id)
             if (mail.isRead === true) return
@@ -146,4 +167,6 @@ export const mailService = {
     onlyFav,
     onlySent,
     howManyRead,
+    sortByName,
+    sortByDate,
 }
