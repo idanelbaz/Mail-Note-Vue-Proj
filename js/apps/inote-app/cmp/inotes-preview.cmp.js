@@ -1,4 +1,5 @@
 import { noteService } from '../../../services/inote-service.js'
+import eventBus from '../../../event-bus.js';
 
 export default {
     template: `
@@ -28,9 +29,11 @@ export default {
         },
         pinNote() {
             noteService.addToPin(this.currNote);
+            // eventBus.$emit('addPin');
         },
         changeBG() {
             noteService.addBGToNote(this.currNote, this.myStyle.backgroundColor)
+                // eventBus.$emit('addPin');
 
         }
     },

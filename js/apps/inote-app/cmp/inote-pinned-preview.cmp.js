@@ -1,4 +1,5 @@
 import { noteService } from '../../../services/inote-service.js'
+import eventBus from '../../../event-bus.js';
 
 
 export default {
@@ -26,10 +27,11 @@ export default {
     methods: {
         removePin() {
             noteService.removeFromPin(this.currNote)
+            eventBus.$emit('addPin');
         },
         changeBG() {
-            noteService.addBGToPin(this.currNote, this.myStyle.backgroundColor)
-
+            noteService.addBGToNote(this.currNote, this.myStyle.backgroundColor)
+            eventBus.$emit('addPin');
         }
     },
 

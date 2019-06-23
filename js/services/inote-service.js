@@ -59,17 +59,15 @@ function findNoteIdx(noteId) {
 
 function addToPin(note) {
     let currNote = findNoteIdx(note.id)
-    gNotes[currNote].isPinned = true;
+    gNotes[currNote].isPinned = !gNotes[currNote].isPinned;
     storageService.store('notes', gNotes);
-
 
 }
 
-function removeFromPin(note) {
-    let currNote = findNoteIdx(note.id);
-    gNotes[currNote].isPinned = false;
-    storageService.store('notes', gNotes);
 
+
+function getNotes() {
+    return gNotes;
 }
 
 function query() {
@@ -90,7 +88,7 @@ export const noteService = {
     query,
     addNote,
     addToPin,
-    removeFromPin,
     addBGToNote,
     deleteNote,
+    getNotes,
 }
