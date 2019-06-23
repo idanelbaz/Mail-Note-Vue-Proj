@@ -31,13 +31,10 @@ export default {
             noteService.addToPin(this.currNote);
             // eventBus.$emit('addPin');
         },
-<<<<<<< HEAD
         changeBG() {
             noteService.addBGToNote(this.currNote, this.myStyle.backgroundColor)
                 // eventBus.$emit('addPin');
 
         }
-=======
->>>>>>> fa6ed892df66fcaa2d3aece860039c7731e90049
     },
 }
