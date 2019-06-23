@@ -12,7 +12,6 @@ let gNotes = [
     createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
 ];
 
-let gPin = [];
 
 function createNote(url = '', type, txt = '') {
     let note = {
@@ -39,13 +38,6 @@ function addBGToNote(note, color) {
     storageService.store('notes', gNotes);
 }
 
-function addBGToPin(note, color) {
-    gPin.forEach(currNote => {
-        if (currNote.id === note.id)
-            currNote.background = color;
-    })
-    storageService.store('notePin', gPin);
-}
 
 function deleteNote(note) {
     gNotes.splice(findNoteIdx(note), 1);
@@ -64,26 +56,20 @@ function findNoteIdx(noteId) {
     })
 }
 
-function findPinIdx(noteId) {
-    return gPin.findIndex(note => {
-        return note.id === noteId
-    })
-}
 
 function addToPin(note) {
-    gPin.unshift(note);
-    gNotes.splice(findNoteIdx(note.id), 1);
+    let currNote = findNoteIdx(note.id)
+    gNotes[currNote].isPinned = true;
     storageService.store('notes', gNotes);
-    storageService.store('notePin', gPin);
+
 
 }
 
 function removeFromPin(note) {
-    gNotes.unshift(note);
-    console.log(findPinIdx(note.id))
-    gPin.splice(findPinIdx(note.id), 1);
+    let currNote = findNoteIdx(note.id);
+    gNotes[currNote].isPinned = false;
     storageService.store('notes', gNotes);
-    storageService.store('notePin', gPin);
+
 }
 
 function query() {
@@ -97,16 +83,6 @@ function query() {
     return Promise.resolve(gNotes);
 }
 
-function queryPin() {
-
-    if (!storageService.load('notePin')) {
-        storageService.store('notePin', gPin)
-    } else {
-        gPin = storageService.load('notePin')
-    }
-
-    return Promise.resolve(gPin);
-}
 
 
 
@@ -114,9 +90,7 @@ export const noteService = {
     query,
     addNote,
     addToPin,
-    queryPin,
     removeFromPin,
     addBGToNote,
     deleteNote,
-    addBGToPin,
 }
