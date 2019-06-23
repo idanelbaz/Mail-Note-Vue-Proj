@@ -7,24 +7,25 @@ import { utilService } from './util.service.js'
 
 
 let gNotes = [
-    createNote('Shalom', 'https://api.adorable.io/avatars/80/moshe.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
-    createNote('What up', 'https://api.adorable.io/avatars/80/idan.png'),
+    createNote('https://api.adorable.io/avatars/80/moshe.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
+    createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
 ];
 
-function createNote(url, type) {
+function createNote(url = '', type, txt = '') {
     let note = {
         id: utilService.makeId(),
-        text: '',
+        text: txt,
         url: url,
         type: type,
         isPinned: false,
+        background: '',
     };
     return note;
 }
 
-function addNote(url, type) {
-    gNotes.unshift(createNote(url, type))
+function addNote(url = '', type, txt = '') {
+    gNotes.unshift(createNote(url, type, txt))
     storageService.store('notes', gNotes);
 }
 
