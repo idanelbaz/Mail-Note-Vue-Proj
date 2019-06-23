@@ -31,8 +31,15 @@ function addNote(url = '', type, txt = '') {
     storageService.store('notes', gNotes);
 }
 
-function deleteNote() {
+function addBGToNote(note, color) {
+    let currNote = findNoteIdx(note);
+    gNotes[currNote].background = color;
+    storageService.store('notes', gNotes);
+}
 
+function deleteNote(note) {
+    gNotes.splice(findNoteIdx(note), 1);
+    storageService.store('notes', gNotes);
 }
 
 function findNoteById(noteId) {
@@ -91,5 +98,6 @@ export const noteService = {
     addToPin,
     queryPin,
     removeFromPin,
-
+    addBGToNote,
+    deleteNote
 }

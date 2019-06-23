@@ -3,13 +3,13 @@ import { noteService } from '../../../services/inote-service.js'
 export default {
     template: `
     <section>
-        <div :style="myStyle" class="note-container"> 
+        <div v-if="currNote" :style="myStyle" class="note-container"> 
             {{currNote.text}}
             <div class="note-tools">
             <button @click="pinNote" class="edit-btn"><i class="el-icon-paperclip"></i></button>
-                <el-color-picker v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
+                <el-color-picker @input="changeBG" v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
                 <button class="edit-btn"><i class="el-icon-edit-outline"></i></button>
-                <button @click="deleteNote(ev ,idx)" class="edit-btn"><i class="el-icon-delete-solid"></i></button>
+                <button @click="deleteNote" class="edit-btn"><i class="el-icon-delete-solid"></i></button>
             </div>
         </div>
     </section>
@@ -23,11 +23,15 @@ export default {
         }
     },
     methods: {
-        deleteNote(ev, idx) {
-            console.log(ev, idx)
+        deleteNote(note) {
+            noteService.deleteNote(note)
         },
         pinNote(note) {
             noteService.addToPin(note);
+        },
+        changeBG(color) {
+            console.log(this.currNote)
+            noteService.addBGToNote(this.currNote, color)
         }
     },
 }
