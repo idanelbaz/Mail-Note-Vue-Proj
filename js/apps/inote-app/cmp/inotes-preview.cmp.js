@@ -1,3 +1,4 @@
+import { noteService } from '../../../services/inote-service.js'
 
 export default {
     template: `
@@ -5,7 +6,7 @@ export default {
         <div :style="myStyle" class="note-container"> 
             {{currNote.text}}
             <div class="note-tools">
-            <button class="edit-btn"><i class="el-icon-paperclip"></i></button>
+            <button @click="pinNote" class="edit-btn"><i class="el-icon-paperclip"></i></button>
                 <el-color-picker v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
                 <button class="edit-btn"><i class="el-icon-edit-outline"></i></button>
                 <button @click="deleteNote(ev ,idx)" class="edit-btn"><i class="el-icon-delete-solid"></i></button>
@@ -22,8 +23,11 @@ export default {
         }
     },
     methods: {
-        deleteNote(ev,idx) {
-            console.log(ev,idx)
+        deleteNote(ev, idx) {
+            console.log(ev, idx)
+        },
+        pinNote(note) {
+            noteService.addToPin(note);
         }
     },
 }

@@ -1,7 +1,7 @@
-import {noteService} from '../../../services/inote-service.js'
+import { noteService } from '../../../services/inote-service.js'
 import inotesPinnedPreview from './inote-pinned-preview.cmp.js'
 export default {
-    template:`
+    template: `
     <section v-if="notes" class="notes-list-container">
         <inotes-pinned-preview v-for="note in notes" :currNote="note" :key="notes.id"></inotes-pinned-preview>
     </section>
@@ -12,15 +12,15 @@ export default {
         }
     },
     created() {
-        noteService.query()
-        .then(notes =>{
-            this.notes = notes
-            console.log(notes)
-        })
+        noteService.queryPin()
+            .then(notes => {
+                this.notes = notes
+                console.log(notes)
+            })
     },
     computed: {
         notesForDisplay() {
-            
+
         }
     },
     components: {

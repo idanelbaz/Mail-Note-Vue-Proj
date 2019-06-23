@@ -12,6 +12,8 @@ let gNotes = [
     createNote('https://api.adorable.io/avatars/80/idan.png', 'img'),
 ];
 
+let gPin = [];
+
 function createNote(url = '', type, txt = '') {
     let note = {
         id: utilService.makeId(),
@@ -30,7 +32,33 @@ function addNote(url = '', type, txt = '') {
 }
 
 function deleteNote() {
-    
+
+}
+
+function findNoteById(noteId) {
+    return gNotes.filter(note => {
+        return note.id === noteId
+    })
+}
+
+function findNoteIdx(noteId) {
+    return gNotes.findIndex(note => {
+        note.id === noteId
+    })
+}
+
+function addToPin(note) {
+    gPin.unshift(note);
+    gNotes.splice(findNoteIdx(note), 1);
+    storageService.store('notes', gNotes);
+    storageService.store('notePin', gPin);
+}
+
+function removeFromPin(note) {
+    gNotes.unshift(note);
+    gPin.splice(findNoteIdx(note), 1);
+    storageService.store('notes', gNotes);
+    storageService.store('notePin', gPin);
 }
 
 function query() {
@@ -44,7 +72,24 @@ function query() {
     return Promise.resolve(gNotes);
 }
 
+function queryPin() {
+
+    if (!storageService.load('notePin')) {
+        storageService.store('notePin', gPin)
+    } else {
+        gPin = storageService.load('notePin')
+    }
+
+    return Promise.resolve(gPin);
+}
+
+
+
 export const noteService = {
     query,
     addNote,
+    addToPin,
+    queryPin,
+    removeFromPin,
+
 }
