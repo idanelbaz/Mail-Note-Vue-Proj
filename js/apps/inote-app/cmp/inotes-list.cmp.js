@@ -5,6 +5,7 @@ import txt from './inote-txt.cmp.js'
 import noteImg from './inote-image.cmp.js'
 import sound from './inote-audio.cmp.js'
 import noteVideo from './inote-video.cmp.js'
+import todo from './inote-todo.cmp.js'
 
 
 // note.type : txt | video | list
@@ -31,6 +32,7 @@ export default {
         txt,
         noteImg,
         sound,
-        noteVideo
+        noteVideo,
+        todo
     }
 }

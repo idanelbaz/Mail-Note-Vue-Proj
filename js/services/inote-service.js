@@ -22,6 +22,7 @@ function createNote(url = '', type, txt = '') {
         type: type,
         isPinned: false,
         background: '',
+        todo: [],
     };
     return note;
 }
@@ -71,6 +72,12 @@ function saveEditVideo(note, input) {
 function saveTxtEdit(note, input) {
     let currNote = findNoteIdx(note.id);
     gNotes[currNote].text = input;
+    storageService.store('notes', gNotes);
+}
+
+function saveTodo(note, input) {
+    let currNote = findNoteIdx(note.id);
+    gNotes[currNote].todo = input;
     storageService.store('notes', gNotes);
 }
 
@@ -130,4 +137,5 @@ export const noteService = {
     saveTxtEdit,
     addNoteVideo,
     saveEditVideo,
+    saveTodo,
 }

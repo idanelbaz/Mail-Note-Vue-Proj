@@ -21,7 +21,11 @@ export default {
             <el-tooltip content="Add Audio" placement="bottom" effect="light">
                 <el-button @click.prevent="chooseSound" class="el-icon-headset"></el-button>
             </el-tooltip>
+            <el-tooltip content="Todo list" placement="bottom" effect="light">
+                <el-button @click.prevent="chooseTodo"  class="el-icon-finished"></el-button>
+            </el-tooltip>
                 <el-button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</el-button>
+
          </div>
         
 
@@ -54,6 +58,10 @@ export default {
         chooseVideo() {
             this.note.url = 'Enter video URL';
             this.note.type = 'noteVideo';
+        },
+        chooseTodo() {
+            this.note.url = 'Press "Add" for Todo-list';
+            this.note.type = 'todo';
         },
         addNote() {
             if (this.note.type === 'txt') noteService.addNote(' ', this.note.type, this.note.url)
