@@ -8,11 +8,12 @@ import noteVideo from './inote-video.cmp.js'
 import todo from './inote-todo.cmp.js'
 
 
-// note.type : txt | video | list
+
+
 export default {
     template: `
     <section v-if="pinNotes" class="notes-list-container">
-    <component v-for='note in pinNotes' :currNote="note" :key="note.id" :is="note.type"></component>
+    <component v-for='note in pinNotes'  :currNote="note" :key="note.id" :is="note.type"></component>
     </section>
     `,
     props: ['pinNotes'],
@@ -27,12 +28,14 @@ export default {
     computed: {
 
     },
+
     components: {
         inotesPreview,
         txt,
         noteImg,
         sound,
         noteVideo,
-        todo
+        todo,
+
     }
 }

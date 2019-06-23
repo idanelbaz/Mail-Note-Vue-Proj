@@ -15,7 +15,7 @@ export default {
                 </div>
 
                 <ul id="myUL">
-                  <li v-if="" v-for="line in currNote.todo">{{line}} </li>
+                  <li v-if="" v-for="line in currNote.todo">{{line}} <i @click="deleteLi(line)" class="el-icon-delete-solid"></i> </li>
                 </ul>
                
             <div class="note-tools">
@@ -40,6 +40,15 @@ export default {
         }
     },
     methods: {
+        deleteLi(currLine) {
+            this.currNote.todo.forEach((line, idx) => {
+                if (line === currLine) this.currNote.todo.splice(idx, 1);
+            })
+
+
+            this.currNote.todo.splice()
+        },
+
         deleteNote() {
             noteService.deleteNote(this.currNote)
         },

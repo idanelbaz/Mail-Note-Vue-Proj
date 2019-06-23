@@ -6,6 +6,7 @@ export default {
     template: `
         <section class="inote-header">
             <img src="imgs/inote-logo.png" class="inote-logo"/>
+
             <el-input  type="text" v-model="note.url" @enter="addNote" autofocus placeholder="What on your mind..." clearable >
             </el-input>
          <div class="btn-input-cont">
@@ -29,6 +30,15 @@ export default {
 
          </div>
         
+         <select v-model="sortBy" @change="emitType" name="" id="">
+                <option value="all">sort by note type</option>
+                <option value="all">All</option>
+                <option value="txt">Text</option>
+                <option value="noteVideo">Video</option>
+                <option value="sound">Audio</option>
+                <option value="noteImg">Image</option>
+                <option value="todo">Todo</option>
+        </select>
 
 
         </section>
@@ -40,10 +50,15 @@ export default {
             note: {
                 url: 'What on your mind...',
                 type: 'txt',
-            }
+            },
+            sortBy: '',
         }
     },
     methods: {
+        emitType() {
+            eventBus.$emit('filter', this.sortBy);
+        },
+
         chooseTxt() {
             this.note.url = 'What on your mind...';
             this.note.type = 'txt';
