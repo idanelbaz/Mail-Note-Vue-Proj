@@ -43,20 +43,23 @@ function findNoteById(noteId) {
 
 function findNoteIdx(noteId) {
     return gNotes.findIndex(note => {
-        note.id === noteId
+        return note.id === noteId
     })
 }
 
 function addToPin(note) {
+    console.log(findNoteIdx(note.id))
     gPin.unshift(note);
-    gNotes.splice(findNoteIdx(note), 1);
+    gNotes.splice(findNoteIdx(note.id), 1);
     storageService.store('notes', gNotes);
     storageService.store('notePin', gPin);
+    console.log(gPin)
+    console.log(gNotes)
 }
 
 function removeFromPin(note) {
     gNotes.unshift(note);
-    gPin.splice(findNoteIdx(note), 1);
+    gPin.splice(findNoteIdx(note.id), 1);
     storageService.store('notes', gNotes);
     storageService.store('notePin', gPin);
 }

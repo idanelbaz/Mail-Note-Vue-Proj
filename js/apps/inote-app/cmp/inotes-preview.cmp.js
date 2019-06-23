@@ -26,8 +26,9 @@ export default {
         deleteNote(ev, idx) {
             console.log(ev, idx)
         },
-        pinNote(note) {
-            noteService.addToPin(note);
+        pinNote() {
+            noteService.addToPin(this.currNote);
+
         }
     },
 }
