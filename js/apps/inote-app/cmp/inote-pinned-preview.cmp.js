@@ -2,12 +2,23 @@
 export default{
     template:`
     <section>
-        <div class="note-pinned-container"> 
-        <button class="pinned-note"><i class="el-icon-paperclip"></i></button>
+        <div :style="myStyle" class="note-pinned-container"> 
             <p>{{currNote.text}}</p>
-            <img :src="currNote.img" alt="">
+             <div class="note-tools">
+                <button class="edit-btn"><i class="el-icon-paperclip"></i></button>
+                    <el-color-picker v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
+                    <button class="edit-btn"><i class="el-icon-edit-outline"></i></button>
+                <button class="edit-btn"><i class="el-icon-delete-solid"></i></button>
+              </div>
         </div>
     </section>
     `,
-    props: ['currNote']
+    props: ['currNote'],
+    data() {
+        return {
+            myStyle: {
+                backgroundColor: '',
+            }
+        }
+    },
 }

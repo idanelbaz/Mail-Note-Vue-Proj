@@ -8,6 +8,7 @@ export default {
             <button class="edit-btn"><i class="el-icon-paperclip"></i></button>
                 <el-color-picker v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
                 <button class="edit-btn"><i class="el-icon-edit-outline"></i></button>
+                <button @click="deleteNote(ev ,idx)" class="edit-btn"><i class="el-icon-delete-solid"></i></button>
             </div>
         </div>
     </section>
@@ -21,8 +22,8 @@ export default {
         }
     },
     methods: {
-        changeColor() {
-            console.log('click')
+        deleteNote(ev,idx) {
+            console.log(ev,idx)
         }
     },
 }

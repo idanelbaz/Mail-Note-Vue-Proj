@@ -130,7 +130,6 @@ function makeRead(currMail) {
                 mail.isRead = true;
             }
     })
-
     storageService.store('mails', gMails);
 }
 

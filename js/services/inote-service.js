@@ -28,6 +28,10 @@ function addNote(url, type) {
     storageService.store('notes', gNotes);
 }
 
+function deleteNote() {
+    
+}
+
 function query() {
 
     if (!storageService.load('notes')) {

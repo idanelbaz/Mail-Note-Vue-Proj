@@ -5,23 +5,17 @@ import { noteService } from '../../../services/inote-service.js'
 export default {
     template: `
         <section class="inote-header">
-        <el-input  type="text" v-model="note.text" @enter="addNote" placeholder="What on your mind..." clearable >
-        </el-input>
-        <div class="btn-input-cont">
-        <!-- <el-button class="el-icon-position"></el-button>  -->
-        <button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></button>
-        <button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></button>
-        <button @click.prevent="chooseImg" class="el-icon-picture-outline"></button>
-        <button @click.prevent="chooseSound" class="el-icon-headset"></button>
-        <button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</button>
-        </div>
-        
-
-
+            <el-input  type="text" v-model="note.text" @enter="addNote" placeholder="What on your mind..." clearable >
+             </el-input>
+            <div class="btn-input-cont">
+                <!-- <el-button class="el-icon-position"></el-button>  -->
+                <button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></button>
+                <button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></button>
+                <button @click.prevent="chooseImg" class="el-icon-picture-outline"></button>
+                <button @click.prevent="chooseSound" class="el-icon-headset"></button>
+                <button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</button>
+            </div>
         </section>
-
-  
-      
 
     `,
     data() {

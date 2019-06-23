@@ -6,7 +6,7 @@ export default {
     name: 'app-side-bar',
     template: `
             <section class="app-side-bar">
-                <img src="../../../../imgs/logo.png" alt="">
+                <img src="imgs/logo.png" alt="">
                 <!-- <nav> 
                     <router-link to="/compose"><i class="el-icon-position side-bar-icon"></i> New Mail</router-link><br>
                     <el-badge :value="12" class="item"><router-link  to="/imail"><i class="el-icon-message side-bar-icon"></i>Inbox</router-link></el-badge><br>

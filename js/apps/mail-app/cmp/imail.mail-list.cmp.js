@@ -71,7 +71,7 @@ export default {
         }
     },
     watch: {
-        '$route' (to, from) {
+        '$route'(to, from) {
             // console.log(to.path)
         }
     },
