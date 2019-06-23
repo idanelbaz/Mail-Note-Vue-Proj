@@ -1,28 +1,28 @@
 
-export default{
-    template:`
+export default {
+    template: `
     <section>
-        <div @input="changeBG" class="note-container"> 
-        <i class="el-icon-paperclip"></i>
+        <div :style="myStyle" class="note-container"> 
             {{currNote.text}}
-        <el-color-picker v-model="noteColor" size="mini"></el-color-picker>
+            <div class="note-tools">
+            <button class="edit-btn"><i class="el-icon-paperclip"></i></button>
+                <el-color-picker v-model="myStyle.backgroundColor" size="mini"></el-color-picker>
+                <button class="edit-btn"><i class="el-icon-edit-outline"></i></button>
+            </div>
         </div>
     </section>
     `,
     props: ['currNote'],
     data() {
         return {
-            noteColor: '',
+            myStyle: {
+                backgroundColor: '',
+            }
         }
     },
     methods: {
         changeColor() {
-          console.log('click')
-        }
-    },
-    computed: {
-        changeBG() {
-            return console.log(this.noteColor)
+            console.log('click')
         }
     },
 }

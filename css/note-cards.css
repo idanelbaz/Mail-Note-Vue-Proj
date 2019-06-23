@@ -9,6 +9,9 @@
     height: 170px;
     background-color: #EEE;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .note-pinned-container {
@@ -31,4 +34,14 @@
 
 .input-add{
     width: 150px;
+}
+.edit-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.note-tools{
+    display: flex;
+    justify-content: space-evenly;
 }
