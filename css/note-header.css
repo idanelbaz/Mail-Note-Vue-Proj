@@ -1,9 +1,17 @@
-.inote-header{
+.inote-header {
     width: 250px;
     text-align: center;
     margin: 30px auto;
 }
 
-.add-note-btn{
+.add-note-btn {
     margin-top: 10px;
+}
+
+.inote-header input {
+    width: 300px;
+}
+
+.btn-input-cont {
+    display: inline-block;
 }
