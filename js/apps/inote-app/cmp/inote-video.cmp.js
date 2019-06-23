@@ -40,7 +40,7 @@ export default {
         },
         changeVideoUrl() {
             this.isEdit = !this.isEdit
-            noteService.saveEdit(this.currNote, this.input);
+            noteService.saveEditVideo(this.currNote, this.input);
         },
         showEditor() {
             this.isEdit = !this.isEdit
