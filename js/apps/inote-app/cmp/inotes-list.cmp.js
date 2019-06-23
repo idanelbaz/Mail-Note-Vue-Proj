@@ -12,7 +12,6 @@ export default {
     template: `
     <section v-if="pinNotes" class="notes-list-container">
     <component v-for='note in pinNotes' :currNote="note" :key="note.id" :is="note.type"></component>
-    <!-- <inotes-preview v-for="note in pinNotes" :currNote="note" :key="note.id"></inotes-preview> -->
     </section>
     `,
     props: ['pinNotes'],

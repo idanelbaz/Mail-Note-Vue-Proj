@@ -36,12 +36,9 @@ export default {
                 url: 'What on your mind...',
                 type: 'txt',
             }
-
-
         }
     },
     methods: {
-
         chooseTxt() {
             this.note.url = 'What on your mind...';
             this.note.type = 'txt';
@@ -58,8 +55,6 @@ export default {
             this.note.url = 'Enter video URL';
             this.note.type = 'noteVideo';
         },
-
-
         addNote() {
             if (this.note.type === 'txt') noteService.addNote(' ', this.note.type, this.note.url)
             else noteService.addNote(this.note.url, this.note.type)
