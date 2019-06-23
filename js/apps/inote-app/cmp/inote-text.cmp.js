@@ -5,24 +5,28 @@ import { noteService } from '../../../services/inote-service.js'
 export default {
     template: `
         <section class="inote-header">
-            <el-input  type="text" v-model="note.text" @enter="addNote" placeholder="What on your mind..." clearable >
-             </el-input>
-            <div class="btn-input-cont">
-                <!-- <el-button class="el-icon-position"></el-button>  -->
-                <button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></button>
-                <button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></button>
-                <button @click.prevent="chooseImg" class="el-icon-picture-outline"></button>
-                <button @click.prevent="chooseSound" class="el-icon-headset"></button>
-                <button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</button>
-            </div>
+        <el-input  type="text" v-model="note.url" @enter="addNote" autofocus placeholder="What on your mind..." clearable >
+        </el-input>
+        <div class="btn-input-cont">
+        <!-- <el-button class="el-icon-position"></el-button>  -->
+        <el-button @click.prevent="chooseTxt"  class="el-icon-edit-outline"></el-button>
+        <el-button @click.prevent="chooseVideo" class="el-icon-video-camera-solid"></el-button>
+        <el-button @click.prevent="chooseImg" class="el-icon-picture-outline"></el-button>
+        <el-button @click.prevent="chooseSound" class="el-icon-headset"></el-button>
+        <el-button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</el-button>
+        </div>
+        
+
+
         </section>
+
 
     `,
     data() {
         return {
             note: {
-                text: '',
-                type: '',
+                url: 'What on your mind...',
+                type: 'txt',
             }
 
 
@@ -31,26 +35,27 @@ export default {
     methods: {
 
         chooseTxt() {
-            this.note.text = 'What on your mind...';
+            this.note.url = 'What on your mind...';
             this.note.type = 'txt';
         },
         chooseImg() {
-            this.note.text = 'Enter image URL ';
+            this.note.url = 'Enter image URL ';
             this.note.type = 'Img';
         },
         chooseSound() {
-            this.note.text = 'Enter sound URL ';
+            this.note.url = 'Enter sound URL ';
             this.note.type = 'sound';
         },
         chooseVideo() {
-            this.note.text = 'Enter video URL';
+            this.note.url = 'Enter video URL';
             this.note.type = 'video';
         },
 
 
         addNote() {
-            noteService.addNote(this.note.text, this.note.type)
-                // eventBus.$emit('chooshedNote', this.note);
+            console.log(this.note)
+            if (this.note.type === 'txt') noteService.addNote(' ', this.note.type, this.note.url)
+            else noteService.addNote(this.note.url, this.note.type)
         }
     },
 }

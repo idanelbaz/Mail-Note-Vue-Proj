@@ -1,6 +1,5 @@
-
-export default{
-    template:`
+export default {
+    template: `
     <section>
         <div :style="myStyle" class="note-pinned-container"> 
             <p>{{currNote.text}}</p>
