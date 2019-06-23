@@ -31,5 +31,6 @@ export default {
             noteService.addBGToPin(this.currNote, this.myStyle.backgroundColor)
 
         }
-    }
+    },
+
 }

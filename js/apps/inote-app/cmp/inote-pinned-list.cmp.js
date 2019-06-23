@@ -3,7 +3,7 @@ import inotesPinnedPreview from './inote-pinned-preview.cmp.js'
 export default {
     template: `
     <section v-if="notes" class="notes-list-container">
-        <inotes-pinned-preview v-for="note in notes" :currNote="note" :key="notes.id"></inotes-pinned-preview>
+        <inotes-pinned-preview v-for="note in notesForDisplay" :currNote="note" :key="notes.id"></inotes-pinned-preview>
     </section>
     `,
     data() {
@@ -12,7 +12,7 @@ export default {
         }
     },
     created() {
-        noteService.queryPin()
+        noteService.query()
             .then(notes => {
                 this.notes = notes
                 console.log(notes)
@@ -20,7 +20,9 @@ export default {
     },
     computed: {
         notesForDisplay() {
-
+            return this.notes.filter(note => {
+                return note.isPinned === true;
+            })
         }
     },
     components: {
