@@ -18,6 +18,7 @@ function createNote(url = '', type, txt = '') {
         id: utilService.makeId(),
         text: txt,
         url: url,
+        youTubeUrl: 'https://www.youtube.com/embed/',
         type: type,
         isPinned: false,
         background: '',
@@ -30,6 +31,17 @@ function addNote(url = '', type, txt = '') {
     storageService.store('notes', gNotes);
 }
 
+
+function addNoteVideo(type, url, txt = '') {
+    let youTube = url.indexOf('.com');
+    let str = '';
+    for (let i = youTube + 5; i < url.length; i++) {
+        str += url[i];
+    }
+    gNotes.unshift(createNote(str, type, txt))
+}
+
+
 function addBGToNote(note, color) {
     gNotes.forEach(currNote => {
         if (currNote.id === note.id)
@@ -41,6 +53,18 @@ function addBGToNote(note, color) {
 function saveEdit(note, input) {
     let currNote = findNoteIdx(note.id);
     gNotes[currNote].url = input;
+    storageService.store('notes', gNotes);
+}
+
+function saveEditVideo(note, input) {
+    let youTube = input.indexOf('.com');
+    let str = '';
+    for (let i = youTube + 5; i < url.length; i++) {
+        str += url[i];
+    }
+    let currNote = findNoteIdx(note.id);
+    gNotes[currNote].url = gNotes[currNote].youTubeUrl + str;
+
     storageService.store('notes', gNotes);
 }
 
@@ -103,5 +127,7 @@ export const noteService = {
     deleteNote,
     getNotes,
     saveEdit,
-    saveTxtEdit
+    saveTxtEdit,
+    addNoteVideo,
+    saveEditVideo,
 }
