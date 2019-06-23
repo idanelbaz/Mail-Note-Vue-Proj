@@ -28,6 +28,6 @@ export default {
         },
         pinNote() {
             noteService.addToPin(this.currNote);
-        }
+        },
     },
 }
