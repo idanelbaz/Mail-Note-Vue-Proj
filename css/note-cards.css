@@ -38,7 +38,6 @@
     transform: rotate(-4deg);
 }
 
-
 .pinned-note {
     width: 26px;
     border: none;
@@ -60,4 +59,10 @@
 .note-tools {
     display: flex;
     justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 600px) {
+    .note-container img {
+        width: 270px;
+    }
 }

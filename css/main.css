@@ -75,8 +75,8 @@ button:focus {
 
 img {
     height: auto;
-    max-width: 190%;
 }
+
 
 /* width */
 
@@ -84,17 +84,20 @@ img {
     width: 10px;
 }
 
+
 /* Track */
 
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
+
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
+
 
 /* Handle on hover */
 
@@ -103,7 +106,7 @@ img {
 }
 
 @media screen and (max-width: 500px) {
-    .icons-div{
+    .icons-div {
         flex-direction: column;
         justify-content: center;
         margin: 82px auto 0 108px;
