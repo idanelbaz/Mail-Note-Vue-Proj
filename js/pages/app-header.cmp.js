@@ -8,14 +8,14 @@ export default {
                     <img src="imgs/app-logo.png" width="75" height="50">
                     </a>
 
-                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <a @click="hamburger" role="button" :class="{'is-active': active}" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     </a>
                 </div>
 
-                <div id="navbarBasicExample" class="navbar-menu">
+                <div id="navbarBasicExample" :class="{'is-active': active}" class="navbar-menu">
                     <div class="navbar-start">
                     <a class="navbar-item">
                      <router-link class="header-nav" exact to="/">Home</router-link>
@@ -38,7 +38,12 @@ export default {
     `,
     data() {
         return {
-
+           active: false,
         }
     },
+     methods: {
+        hamburger() {
+            this.active = !this.active
+        }
+     },
 }
