@@ -5,7 +5,7 @@ export default {
     template: `
     <section>
         <div v-if="currNote" :style="myStyle" class="note-container"> 
-            {{currNote.text}}
+        <img class="pinImg" src="../imgs/pinImg.png" alt="">
             
             <div id="myDIV" class="header">
             <h2>My To Do List</h2>

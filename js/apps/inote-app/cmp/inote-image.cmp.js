@@ -5,6 +5,7 @@ export default {
     template: `
     <section>
         <div v-if="currNote" :style="myStyle" class="note-container"> 
+        <img class="pinImg" src="../imgs/pinImg.png" alt="">
         <img style="width: 320px; height: 170px" :src="currNote.url"/>
         <input v-if="isEdit" @keyup.enter="changeImgUrl" placeholder="Change IMG URL" v-model="input"></input>
             <div class="note-tools">
