@@ -13,6 +13,13 @@
     padding: 30px;
 }
 
+.mail-detail-flex{
+    display: flex;
+    height: 60vh;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .mail-section img {
     border-radius: 50px;
     width: 35px;

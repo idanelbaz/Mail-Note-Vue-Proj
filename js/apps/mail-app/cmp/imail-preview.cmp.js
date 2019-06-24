@@ -5,23 +5,24 @@ export default {
     name: 'mail-preview',
     template: `
         <section v-if="currMail" @click.stop="goToMail"  class="mail-preview" :class="{ read: isRead }" >
-        <el-table  :data="tableData" style="width: 100%">
-            <el-table-column prop="date" label="Date"  width="180">
-            </el-table-column>
-            <el-table-column prop="name" label="Name">
-            </el-table-column>
-            <el-table-column prop="subject" label="Subject">
-            </el-table-column>
-            <el-table-column prop="msg" label="Message">
-            <subject-Text @click.stop="goToMail" :txt="currMail.mailTxt"></subject-Text>
-            </el-table-column>
-            <el-table-column prop="msg" label="Actions">
-            <div class="mail-icons">
-                <button  @click.stop="moveItemToTrash"><i class="el-icon-delete-solid"></i></button>
-                <button  @click.stop="moveItemToFav"><i class="el-icon-star-off" :class ="checkIfFav"></i></button>
-            </div>
-            </el-table-column>
-        </el-table>
+
+            <el-table  :data="tableData" style="width: 100%">
+                <el-table-column prop="date" label="Date"  width="180">
+                </el-table-column>
+                <el-table-column prop="name" label="Name">
+                </el-table-column>
+                <el-table-column prop="subject" label="Subject">
+                </el-table-column>
+                <el-table-column prop="msg" label="Message">
+                <subject-Text @click.stop="goToMail" :txt="currMail.mailTxt"></subject-Text>
+                </el-table-column>
+                <el-table-column prop="msg" label="Actions">
+                <div class="mail-icons">
+                    <button  @click.stop="moveItemToTrash"><i class="el-icon-delete-solid"></i></button>
+                    <button  @click.stop="moveItemToFav"><i class="el-icon-star-off" :class ="checkIfFav"></i></button>
+                </div>
+                </el-table-column>
+            </el-table>
             </section>
             <!-- <p @click.stop="goToMail">{{currMail.senderName}}</p>
             <subject-Text @click.stop="goToMail" :txt="currMail.mailTxt"></subject-Text>

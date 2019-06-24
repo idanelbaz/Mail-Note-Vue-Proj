@@ -14,9 +14,9 @@ export default {
                     <img :src="mail.profileImg" alt="">  <h1 style="display: inline-block;">{{mail.senderName}}</h1> 
                      <span><{{mail.senderMailAdd}}></span>
                             <span>{{mail.time}}</span>
-                        <div>
-                            <h1>{{mail.subject}}</h1>
-                            <p>{{mail.mailTxt}}</p>
+                        <div class="mail-detail-flex">
+                        <el-input v-model="mail.subject" disabled></el-input>
+                        <el-input type="textarea" :rows="16" v-model="mail.mailTxt"></el-input>
                             <el-button @click="mailReplay" type="danger">{{btnTxt}}</el-button>
                             <div v-if="showReplay" class="mail-replay">
                                 <el-input :disabled="true" :placeholder="senderMail"></el-input>
@@ -36,7 +36,7 @@ export default {
             senderMail: null,
             showReplay: false,
             subject: null,
-            senderName: null
+            senderName: null,
         }
     },
     created() {
