@@ -15,7 +15,29 @@
     display: inline-block;
 }
 
-.inote-logo{
+.inote-logo {
     width: 100px;
     margin-bottom: 10px;
+}
+
+.addBtn {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.pinImg {
+    position: relative;
+    right: -262px;
+    top: -7px;
+    width: 30px;
+    height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .inote-header input {
+        margin-bottom: 10px;
+    }
+    .add-note-btn {
+        margin-bottom: 10px;
+    }
 }

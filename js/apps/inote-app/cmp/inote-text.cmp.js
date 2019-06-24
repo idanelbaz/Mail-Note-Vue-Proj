@@ -29,8 +29,18 @@ export default {
                 <el-button @click.prevent="addNote" type="success" class="add-note-btn" plain>Add</el-button>
 
          </div>
+         
+         <el-select id="note-sort" v-model="sortBy" @change="emitType">
+                    <el-option value="all">All</el-option>
+                    <el-option value="txt">Text</el-option>
+                    <el-option value="sound">Audio</el-option>
+                    <el-option value="noteVideo">Video</el-option>
+                    <el-option value="noteImg">Image</el-option>
+                    <el-option value="todo">Todo</el-option>
+                </el-select>
+
         
-         <select v-model="sortBy" @change="emitType" name="" id="">
+         <!-- <select v-model="sortBy" @change="emitType" name="" id="">
                 <option value="all">sort by note type</option>
                 <option value="all">All</option>
                 <option value="txt">Text</option>
@@ -38,7 +48,7 @@ export default {
                 <option value="sound">Audio</option>
                 <option value="noteImg">Image</option>
                 <option value="todo">Todo</option>
-        </select>
+        </select> -->
 
 
         </section>
@@ -51,7 +61,7 @@ export default {
                 url: 'What on your mind...',
                 type: 'txt',
             },
-            sortBy: '',
+            sortBy: 'Sort by',
         }
     },
     methods: {

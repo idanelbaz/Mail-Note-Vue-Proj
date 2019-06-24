@@ -6,7 +6,8 @@
 
 .note-container {
     width: 320px;
-    height: 205px;
+    min-height: 205px;
+    max-height: 280px;
     background-color: #EEE;
     margin-bottom: 20px;
     display: flex;
