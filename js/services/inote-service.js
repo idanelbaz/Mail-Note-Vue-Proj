@@ -23,6 +23,7 @@ function createNote(url = '', type, txt = '') {
         isPinned: false,
         background: '',
         todo: [],
+        todoTime: '',
     };
     return note;
 }
@@ -75,9 +76,10 @@ function saveTxtEdit(note, input) {
     storageService.store('notes', gNotes);
 }
 
-function saveTodo(note, input) {
+function saveTodo(note, input, time) {
     let currNote = findNoteIdx(note.id);
     gNotes[currNote].todo = input;
+    gNotes[currNote].todoTime = time;
     storageService.store('notes', gNotes);
 }
 

@@ -6,8 +6,8 @@
 
 .note-container {
     width: 320px;
-    min-height: 205px;
-    max-height: 280px;
+    height: 205px;
+    height: 280px;
     background-color: #EEE;
     margin-bottom: 20px;
     display: flex;
@@ -38,6 +38,12 @@
     transform: rotate(-4deg);
 }
 
+.note-container p {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .pinned-note {
     width: 26px;
     border: none;
@@ -62,7 +68,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .note-container img {
+    .img-cmp {
         width: 270px;
     }
 }

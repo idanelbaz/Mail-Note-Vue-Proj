@@ -5,7 +5,7 @@ export default {
     template: `
     <section>
         <div v-if="currNote" :style="myStyle" class="note-container"> 
-        <img class="pinImg" src="../imgs/pinImg.png" alt="">
+        <img  @click="pinNote"  class="pinImg" src="../imgs/pinImg.png" alt="">
         <iframe width="318" height="150" :src="currNote.youTubeUrl+currNote.url"></iframe>
         <input v-if="isEdit" @keyup.enter="changeVideoUrl" placeholder="Change IMG URL" v-model="input"></input>
             <div class="note-tools">

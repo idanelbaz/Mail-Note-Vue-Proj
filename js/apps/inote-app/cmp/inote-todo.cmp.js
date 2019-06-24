@@ -5,10 +5,11 @@ export default {
     template: `
     <section>
         <div v-if="currNote" :style="myStyle" class="note-container"> 
-        <img class="pinImg" src="../imgs/pinImg.png" alt="">
-            
-            <div id="myDIV" class="header">
+        <img  @click="pinNote" class="pinImg" src="../imgs/pinImg.png" alt="">
+            <p v-if="currNote.todoTime" >{{currNote.todoTime}} </p>
+             <div id="myDIV" class="header">
             <h2>My To Do List</h2>
+
             <input v-if="!isDone" type="text" id="myInput" placeholder="write todo..."  v-model="liTxt">
                 <span v-if="!isDone" @click="addTodoItem" class="addBtn">Add</span>
                 <span v-if="!isDone" @click="saveTodo" class="addBtn">Save</span>
@@ -72,7 +73,7 @@ export default {
             this.liTxt = '';
         },
         saveTodo() {
-            noteService.saveTodo(this.currNote, this.currNote.todo);
+            noteService.saveTodo(this.currNote, this.currNote.todo, moment().format('MMMM Do YYYY, h:mm a'));
             this.isDone = true;
         }
     },

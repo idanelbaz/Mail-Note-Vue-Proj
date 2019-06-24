@@ -5,7 +5,7 @@ export default {
     template: `
     <section>
         <div v-if="currNote" :style="myStyle" class="note-container"> 
-        <img class="pinImg" src="../imgs/pinImg.png" alt="">
+        <img  @click="pinNote" class="pinImg" src="../imgs/pinImg.png" alt="">
             {{currNote.text}}
             <input type="textarea" v-if="isEdit" :rows="2" placeholder="Edit Your Text..." v-model="textarea">
             </input>

@@ -5,7 +5,7 @@ export default {
     template: `
     <section>
         <div v-if="currNote" :style="myStyle" class="note-container"> 
-        <img class="pinImg" src="../imgs/pinImg.png" alt="">
+        <img  @click="pinNote"  class="pinImg" src="../imgs/pinImg.png" alt="">
         <audio>
             <source :src="currNote.url" type="mp4">
         </audio>
