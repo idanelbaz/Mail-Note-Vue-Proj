@@ -9,7 +9,6 @@ export default {
     template: `
             <section v-if="mails" class="mail-list">
                 <mail-preview v-for="mail in mailsForDisplay" :currMail ="mail" :key="mail.id"></mail-preview>
-                <b-table :currMail ="mail" v-for="mail in mailsForDisplay" :columns="columns"></b-table>
             </section>    
     
     `,
@@ -18,31 +17,6 @@ export default {
             mails: null,
             filterBy: { txt: '', whatShow: 'all', nameOrDate: '' },
             isRead: false,
-            columns: [
-                {
-                    field: 'id',
-                    label: 'Date',
-                    width: '40',
-                    numeric: true
-                },
-                {
-                    field: 'name',
-                    label: 'Name',
-                },
-                {
-                    field: 'last_name',
-                    label: 'Subject',
-                },
-                {
-                    field: 'date',
-                    label: 'Message',
-                    centered: true
-                },
-                {
-                    field: 'gender',
-                    label: 'Actions',
-                }
-            ]
         }
     },
     created() {
@@ -95,7 +69,7 @@ export default {
         }
     },
     watch: {
-        '$route'(to, from) {
+        '$route' (to, from) {
             // console.log(to.path)
         }
     },
