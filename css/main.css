@@ -3,6 +3,7 @@
 @import url('./mail-compose.css');
 @import url('./note-header.css');
 @import url('./note-cards.css');
+
 @font-face {
     font-family: Roboto;
     src: url(../fonts/Roboto/Roboto-Regular.ttf);
@@ -12,6 +13,11 @@ body {
     font-family: Roboto;
     margin: 0;
 }
+
+/* .page {
+    position: fixed;
+    width: inherit;
+} */
 
 .header-nav {
     text-decoration: none;
@@ -77,6 +83,9 @@ img {
     height: auto;
 }
 
+.imail-logo img {
+    width: 245px;
+}
 
 /* width */
 
@@ -84,20 +93,17 @@ img {
     width: 10px;
 }
 
-
 /* Track */
 
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
-
 
 /* Handle on hover */
 
