@@ -11,7 +11,9 @@ new Vue({
     template: `
         <div>
             <app-header></app-header>
+                <transition name="router-anim" enter-active-class="animated fadeInRight delay-1s" leave-active-class="animated fadeOutRight">
             <router-view></router-view>
+                </transition>
         </div>    
     `,
     components: {

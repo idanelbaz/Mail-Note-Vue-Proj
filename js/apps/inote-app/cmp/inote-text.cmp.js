@@ -4,7 +4,7 @@ import { noteService } from '../../../services/inote-service.js'
 
 export default {
     template: `
-        <section class="inote-header">
+        <section class="inote-header page">
             <img src="imgs/inote-logo.png" class="inote-logo"/>
 
             <el-input  type="text" v-model="note.url" @enter="addNote" autofocus placeholder="What on your mind..." clearable >
